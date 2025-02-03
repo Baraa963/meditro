@@ -1,0 +1,416 @@
+import {
+  faBed,
+  faFire,
+  faSyringe,
+  faTruckMedical,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Box, Container, Stack, Typography,Button } from "@mui/material";
+import doc1Img from "../../../assets/pic-1.jpg";
+import doc2Img from "../../../assets/pic-2.jpg";
+import doc3Img from "../../../assets/pic-3.jpg";
+import doc4Img from "../../../assets/pic-3.jpg";
+import square1 from "../../../assets/square1.png";
+import lines from "../../../assets/squiggly lines.png";
+import line from "../../../assets/line.png";
+import img1 from '../../../assets/aboutImg1.png'
+import img2 from '../../../assets/AboutImg2.png'
+export default function AboutUs() {
+  return (
+    <Container>
+      <Stack
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: { md: "column", lg: "row" },
+          width: "100%",
+          position:'relative',
+        }}
+      >
+        <img
+          src={square1}
+          style={{
+            position: "absolute",
+            right: "2%",
+            top: "4%",
+            animation: "move2 1.5s infinite alternate-reverse",
+            zIndex: 1, // Resmi daha geriye atar
+          }}
+        />
+        <img
+          src={img1}
+          style={{
+            position: "absolute",
+            right: "2%",
+            bottom: "-5%",
+            animation: "move1 1.5s infinite alternate-reverse",
+            zIndex: 1, // Resmi daha geriye atar
+          }}
+        />
+        <img
+          src={img2}
+          style={{
+            position: "absolute",
+            right: "25%",
+            bottom: "-15%",
+            animation: "move3 5.5s infinite alternate-reverse",
+            zIndex: 1, // Resmi daha geriye atar
+          }}
+        />
+        
+        {/* Left Side */}
+        <Box
+          sx={{
+            width: "50%",
+            display: "flex",
+            mt: "5px",
+            flexWrap: "wrap",
+            alignItems: "end",
+            justifyContent: "center",
+            position: "relative",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "end",
+              gap: "25px 25px",
+              mb: "25px",
+            }}
+          >
+            <Box>
+              <img
+                style={{
+                  width: "100%",
+                  maxWidth: "210px",
+                  height: "auto",
+                  borderRadius: "0% 20% 20% 20%",
+                  boxSshadow: "0 5px 30px 0 rgba(31, 34, 120, .08)",
+                }}
+                src={doc1Img}
+              />
+            </Box>
+            <Box>
+              <img
+                style={{
+                  width: "100%",
+                  maxWidth: "300px",
+                  height: "auto",
+                  borderRadius: "20% 0% 20% 20%",
+                }}
+                src={doc2Img}
+              />
+            </Box>
+          </Box>
+
+          <Box
+            sx={{
+              display: { xs: "none", lg: "block" },
+              width: "50px",
+              height: "50px",
+              position: "absolute",
+              top: "55%",
+              left: "38.5%",
+              transform: "rotate(45deg)",
+              borderRadius: "30%",
+              backgroundColor: "var(--orange-color)",
+            }}
+          />
+
+        <img
+          src={lines}
+          style={{
+            position: "absolute",
+            left: "6%",
+            bottom: "10%",
+            zIndex: 0,
+            animation: "move1 1.5s infinite alternate-reverse", // Animasyonu ekledik
+          }}
+        />
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "start",
+              gap: "25px 25px",
+              zIndex: 1,
+            }}
+          >
+            <Box>
+              <img
+                style={{
+                  width: "100%",
+                  maxWidth: "110px",
+                  height: "auto",
+                  borderRadius: "20% 37% 20% 0%",
+                }}
+                src={doc3Img}
+              />
+            </Box>
+            <Box>
+              <img
+                style={{
+                  width: "100%",
+                  maxWidth: "190px",
+                  height: "auto",
+                  borderRadius: "20% 20% 0% 20%",
+                }}
+                src={doc4Img}
+              />
+            </Box>
+          </Box>
+        </Box>
+
+        {/* Right Side */}
+        <Box sx={{ width: { md: "70%", lg: "50%" }, mt: "50px" }}>
+          <Box sx={{ width: "100%" }}>
+            <Typography
+              sx={{
+                fontSize: "22px",
+                color: "var(--orange-color)",
+                mb: "10px",
+                backgroundImage: `url(${line})`,
+                backgroundPosition: "50%",
+                backgroundRepeat: "repeat",
+                display: "inline-block",
+                fontWeight: "700",
+                marginBottom: "15px",
+                padding: "3px 15px",
+                position: "relative", // İçindeki metni yukarı taşır
+                zIndex: 2, // Metni öne getirir
+              }}
+            >
+              About Us
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "36px",
+                fontWeight: "bold",
+                color: "var(--main-color)",
+                mb: "10px",
+                pl:'2px'
+              }}
+            >
+              The Great Place Of Medical Hospital Center
+            </Typography>
+            <Typography sx={{ fontSize: "18px", lineHeight: "1.6", pl:'2px' }}>
+              We provide the special tips and advice’s of heath care treatment
+              and high level of best technology involve in the our hospital.
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              mt: "45px",
+              flexWrap: "wrap",
+              gap: "30px 30px",
+              justifyContent:'center'
+            }}
+          >
+            {/* Emergency Help */}
+            <Box
+              sx={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "start",
+                width: { md: "47%", lg: "273px" },
+                p: "20px",
+                borderRadius: "8px",
+                border: "2px solid #b2f0fb",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  width: "75px",
+                  height: "75px",
+                  borderRadius: "9% 50% 50% 9%",
+                  left: "0%",
+                  backgroundColor: "#b2f0fba8",
+                  zIndex: 0,
+                },
+                "&:hover .icon": {
+                  animation: "shake 0.4s ease-in-out",
+                },
+              }}
+            >
+              <FontAwesomeIcon
+                className="icon"
+                icon={faTruckMedical}
+                size="2x"
+                style={{ zIndex: "1" }}
+              />
+              <Typography sx={{ pl: "40px" }}>Emergency Help</Typography>
+            </Box>
+
+            {/* Qualified Doctors */}
+            <Box
+              sx={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "start",
+                width: { md: "47%", lg: "273px" },
+                p: "20px",
+                borderRadius: "8px",
+                border: "2px solid #a4fcc4",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  width: "75px",
+                  height: "75px",
+                  borderRadius: "9% 50% 50% 9%",
+                  left: "0%",
+                  backgroundColor: "#a4fcc4a8",
+                  zIndex: 0,
+                },
+                "&:hover .icon": {
+                  animation: "shake 0.4s ease-in-out",
+                },
+              }}
+            >
+              <FontAwesomeIcon
+                className="icon"
+                icon={faBed}
+                size="2x"
+                style={{ zIndex: "1" }}
+              />
+              <Typography sx={{ pl: "40px" }}>Qualified Doctors</Typography>
+            </Box>
+
+            {/* Best Professionals */}
+            <Box
+              sx={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "start",
+                width: { md: "47%", lg: "273px" },
+                p: "20px",
+                borderRadius: "8px",
+                border: "2px solid #ffbdbc",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  width: "75px",
+                  height: "75px",
+                  borderRadius: "9% 50% 50% 9%",
+                  left: "0%",
+                  backgroundColor: "#ffbdbca8",
+                  zIndex: 0,
+                },
+                "&:hover .icon": {
+                  animation: "shake 0.4s ease-in-out",
+                },
+              }}
+            >
+              <FontAwesomeIcon
+                className="icon"
+                icon={faFire}
+                size="2x"
+                color="orange"
+                style={{ zIndex: "1" }}
+              />
+              <Typography sx={{ pl: "40px" }}>Best Professionals</Typography>
+            </Box>
+
+            {/* Medical Treatment */}
+            <Box
+              sx={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "start",
+                width: { md: "47%", lg: "273px" },
+                p: "20px",
+                borderRadius: "8px",
+                border: "2px solid #e2c4ff",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  width: "75px",
+                  height: "75px",
+                  borderRadius: "9% 50% 50% 9%",
+                  left: "0%",
+                  backgroundColor: "#e2c4ffa8",
+                  zIndex: 0,
+                },
+                "&:hover .icon": {
+                  animation: "shake 0.4s ease-in-out",
+                },
+              }}
+            >
+              <FontAwesomeIcon
+                className="icon"
+                icon={faSyringe}
+                size="2x"
+                style={{ zIndex: "1" }}
+              />
+              <Typography sx={{ pl: "40px" }}>Medical Treatment</Typography>
+            </Box>
+
+            
+
+          </Box>
+          
+          <Box sx={{display:'flex', justifyContent:{xs:'start',sm:'center',lg:'start'}}}>
+          <Button
+              sx={{
+                width: { xs: "130px", sm: "150px", md: "160px" }, // Responsive genişlik
+                height: { xs: "40px", sm: "45px", md: "50px" }, // Responsive yükseklik
+                fontSize: { xs: "12px", sm: "14px", md: "15px" }, // Responsive yazı boyutu
+                backgroundColor: "var(--btn-color)",
+                mt:'30px',
+                "&:hover": {
+                  backgroundCcolor: '#494db0',
+                  borderColor: '#494db0',
+                  color: '#fff',
+                  opacity:'0.95',
+                  transition: ".3s ease-in-out",
+                },
+              }}
+              variant="contained"
+            >
+              Read More
+          </Button>
+          </Box>
+        
+
+        </Box>
+      </Stack>
+
+      {/* Shake Animation */}
+      <style>{`
+        @keyframes shake {
+          0% { transform: translateX(0); }
+          25% { transform: translateX(-10px); }
+          50% { transform: translateX(10px); }
+          75% { transform: translateX(-10px); }
+          100% { transform: translateX(0); }
+        }
+          
+        @keyframes move1 {
+          0% { transform: translateX(0px) rotate(0deg); }
+          50% { transform: translateX(-10px) rotate(3deg); }
+          100% { transform: translateX(0px) rotate(0deg); }
+        }
+        
+        @keyframes move2 {
+          0% { transform:  rotate(0deg); }
+          50% { transform: rotate(30deg); }
+          100% { transform: rotate(60deg); }
+        }
+
+        @keyframes move3 {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-50px); }
+          100% { transform: translateY(0px); }
+        }
+
+        @keyframes rotateInfinite {
+        from {transform: rotate(0deg); }
+        to {transform: rotate(360deg); }
+        }
+      `}</style>
+    </Container>
+  );
+}

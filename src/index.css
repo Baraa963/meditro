@@ -1,0 +1,125 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Tajawal", sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+  background-color: #fff !important;
+ 
+}
+:root{
+  --main-color:#1F2278;
+  --orange-color:#f17732;
+  --btn-color:#565acf;
+  padding: 0;
+}
+#root{
+  padding: 0 !important;
+  /* transition: 0.4s ease-in-out; */
+}
+.border{
+  border: 5px solid red !important;
+}
+
+
+@media (max-width: 1200px) {
+  body {
+    background-size: cover; /* Görüntünün tam ekrana uymasını sağlar */
+    background-position: center; /* Görüntüyü ortalar */
+    height: auto; /* Yüksekliği otomatik yapar */
+  }
+}
+
+
+
+.square1-img {
+  position: absolute;
+  width: 10%;
+  top: 3%;
+  right: 40%;
+  animation: rotateInfinite 10s linear infinite;
+  -moz-animation: rotateInfinite 10s linear infinite;
+  -webkit-animation: rotateInfinite 10s linear infinite;
+  -o-animation: rotateInfinite 10s linear infinite;
+}
+@keyframes rotateInfinite {
+  from {
+    transform: rotate(0deg); /* Başlangıç noktası */
+  }
+  to {
+    transform: rotate(360deg); /* 360 derece dönme */
+  }
+}
+
+.circle-img {
+  position: absolute;
+  width: 5%;
+  top: 5%;
+  right: 80%;
+  animation: move2 2s infinite alternate-reverse;
+  -moz-animation: move2 2s infinite alternate-reverse;
+  -webkit-animation: move2 2s infinite alternate-reverse;
+  -o-animation: move2 2s infinite alternate-reverse;
+}
+@keyframes move2 {
+  0% {
+    scale: 0.6;
+  }
+  100% {
+    scale: 1;
+  }
+}
+.traingle-img {
+  position: absolute;
+  width: 14%;
+  bottom: 30%;
+  left: 0%;
+  animation: move 1.5s infinite alternate-reverse;
+  -moz-animation: move 1.5s infinite alternate-reverse;
+  -webkit-animation: move 1.5s infinite alternate-reverse;
+  -o-animation: move 1.5s infinite alternate-reverse;
+  transition: 0.3s ease all;
+}
+@keyframes move {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+.doctor-img {
+  max-width: 100%;
+  width: 400px;
+  height: auto;
+  animation: move 1.5s infinite alternate-reverse;
+  -moz-animation: move 1.5s infinite alternate-reverse;
+  -webkit-animation: move 1.5s infinite alternate-reverse;
+  -o-animation: move 1.5s infinite alternate-reverse;
+}
+.plus-img{
+    position: absolute;
+    width: 13%;
+    bottom: 1%;
+    right: 0%;
+    animation: none;
+}
+@media (max-width: 800px) {
+    .plus-img,.traingle-img,.box{
+        display: none;
+    }
+
+
+}
+
+@keyframes move5 {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(25px);
+  }
+}
