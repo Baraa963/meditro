@@ -29,16 +29,10 @@ export default function weWorks() {
 
   return (
     <Container sx={{ position: "relative" }}>
-      {/* <motion.img
-        initial={{ x: 400 }}
-        whileInView={{ x: 0 }}
-        transition={{ duration: 3.5, ease: "easeInOut" }}
-        style={{ position: "absolute", left: "29%", top: "6%" }}
-        src={blueCircle}
-      /> */}
       <img
         style={{
           position: "absolute",
+          width:'8%',
           left: "9%",
           top: "2%",
           animation: "rotateInfinite 10s linear infinite",

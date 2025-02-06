@@ -31,7 +31,7 @@ export default function AboutUs() {
           src={square1}
           style={{
             position: "absolute",
-            right: "2%",
+            right: "2.5vw",
             top: "4%",
             animation: "move2 1.5s infinite alternate-reverse",
             zIndex: 1, // Resmi daha geriye atar
@@ -380,36 +380,7 @@ export default function AboutUs() {
 
       {/* Shake Animation */}
       <style>{`
-        @keyframes shake {
-          0% { transform: translateX(0); }
-          25% { transform: translateX(-10px); }
-          50% { transform: translateX(10px); }
-          75% { transform: translateX(-10px); }
-          100% { transform: translateX(0); }
-        }
-          
-        @keyframes move1 {
-          0% { transform: translateX(0px) rotate(0deg); }
-          50% { transform: translateX(-10px) rotate(3deg); }
-          100% { transform: translateX(0px) rotate(0deg); }
-        }
         
-        @keyframes move2 {
-          0% { transform:  rotate(0deg); }
-          50% { transform: rotate(30deg); }
-          100% { transform: rotate(60deg); }
-        }
-
-        @keyframes move3 {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-50px); }
-          100% { transform: translateY(0px); }
-        }
-
-        @keyframes rotateInfinite {
-        from {transform: rotate(0deg); }
-        to {transform: rotate(360deg); }
-        }
       `}</style>
     </Container>
   );

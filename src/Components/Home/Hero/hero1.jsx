@@ -66,7 +66,7 @@ export default function hero1() {
           </Typography>
 
           <Box
-            className="border box"
+            className="box"
             sx={{
               width: { md: "800px", lg: "750px" },
               height: "250px",

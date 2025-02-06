@@ -5,7 +5,7 @@ import Hero1 from '../../Components/Home/Hero/hero1';
 import Shape from '../../assets/shape1.png';
 import "./homePage.css";
 import BookAppointment from '../../Components/Home/BookAppointment/bookAppointment'
-
+import Services from '../../Components/Home/Services/services'
 export default function homePage() {
   return (
     <>
@@ -18,6 +18,7 @@ export default function homePage() {
       <AboutUs />
       <WeWorks/>
       <BookAppointment/>
+      <Services/>
     </>
   );
 }
