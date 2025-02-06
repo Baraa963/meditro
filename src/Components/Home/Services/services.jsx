@@ -52,7 +52,6 @@ export default function Services() {
       sx={{
         width: "100%",
         overflow: "hidden",
-        mb: "80px",
         position: "relative",
       }}
     >
@@ -350,6 +349,7 @@ export default function Services() {
               }}
             />
           </Box>
+
         </Stack>
       </Container>
     </Box>

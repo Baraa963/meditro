@@ -1,12 +1,13 @@
 import { Box, Typography, Container, Drawer, IconButton } from "@mui/material";
 import { useState, useEffect } from "react";
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
 
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMediumScreen, setIsMediumScreen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Detect screen size changes to toggle drawer visibility
   useEffect(() => {
@@ -32,6 +33,20 @@ export default function Navbar() {
     setIsDrawerOpen(open);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const list = () => (
     <Box
       sx={{ width: 250 }}
@@ -40,104 +55,140 @@ export default function Navbar() {
       onKeyDown={() => setIsDrawerOpen(false)}
     >
       {/* Show logo inside the Drawer */}
-      <Box sx={{ padding: '20px', textAlign: 'left' }}>
-        <img src={logo} alt="Logo" style={{ width: '150px' }} />
+      <Box sx={{ padding: "20px", textAlign: "left" }}>
+        <img src={logo} alt="Logo" style={{ width: "150px" }} />
       </Box>
 
       {/* List of menu items */}
-      {["Home", "Pages", "Services", "Blog", "Contact Us", "Search"].map((text, index) => (
-        <Typography
-          key={index}
-          sx={{
-            position: "relative",
-            padding: "15px 20px",
-            "&:hover": {
-              cursor: "pointer",
-              color: "var(--orange-color)",
-              transition: "0.4s ease-in-out",
-              transform: "translateX(10px)", 
-            },
-            "&:active": {
-              transform: "translateX(0)", 
-              transition: "transform 0.2s ease-out", 
-            },
-            "&::after": {
-              content: '""',
-              position: "absolute",
-              bottom: -2,
-              left: 0,
-              width: "0%",
-              height: "2px",
-              backgroundColor: "var(--orange-color)",
-              transition: "width 0.4s ease-in-out",
-            },
-            "&:hover::after": {
-              width: "100%",
-            },
-          }}
-        >
-          {text}
-        </Typography>
-      ))}
+      {["Home", "Pages", "Services", "Blog", "Contact Us", "Search"].map(
+        (text, index) => (
+          <Typography
+            key={index}
+            sx={{
+              position: "relative",
+              padding: "15px 20px",
+              "&:hover": {
+                cursor: "pointer",
+                color: "var(--orange-color)",
+                transition: "0.4s ease-in-out",
+                transform: "translateX(10px)",
+              },
+              "&:active": {
+                transform: "translateX(0)",
+                transition: "transform 0.2s ease-out",
+              },
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                bottom: -2,
+                left: 0,
+                width: "0%",
+                height: "2px",
+                backgroundColor: "var(--orange-color)",
+                transition: "width 0.4s ease-in-out",
+              },
+              "&:hover::after": {
+                width: "100%",
+              },
+            }}
+          >
+            {text}
+          </Typography>
+        )
+      )}
     </Box>
   );
 
   return (
-    <Container sx={{ padding: '25px 10px' }}>
-      <Box sx={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-        
-        <Box sx={{ width: '25%', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
-          <img src={logo} alt="Logo" />
+    <Box
+    sx={{
+      width: "100%",
+      backgroundColor: isScrolled ? "#fff" : "transparent",
+      position: "fixed",
+      zIndex: 3,
+      transition: "background-color 0.3s ease-in-out",
+    }}
+    >
+      <Container sx={{ padding: "25px 10px" }}>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Box
+            sx={{
+              width: "25%",
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "center",
+            }}
+          >
+            <img src={logo} alt="Logo" />
+          </Box>
+
+          <Box
+            sx={{
+              color: "var(--main-color)",
+              width: "75%",
+              display: { xs: "contents", md: "flex" },
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+            }}
+          >
+            {!isMediumScreen ? (
+              // Show desktop nav links
+              ["Home", "Pages", "Services", "Blog", "Contact Us", "Search"].map(
+                (text, index) => (
+                  <Typography
+                    key={index}
+                    sx={{
+                      position: "relative",
+                      "&:hover": {
+                        cursor: "pointer",
+                        color: "var(--orange-color)",
+                        transition: "0.4s ease-in-out",
+                      },
+                      "&::after": {
+                        content: '""',
+                        position: "absolute",
+                        bottom: -2,
+                        left: 0,
+                        width: "0%",
+                        height: "2px",
+                        backgroundColor: "var(--orange-color)",
+                        transition: "width 0.4s ease-in-out",
+                      },
+                      "&:hover::after": {
+                        width: "100%",
+                      },
+                    }}
+                  >
+                    {text}
+                  </Typography>
+                )
+              )
+            ) : (
+              // Show mobile menu icon for medium screens
+              <IconButton onClick={() => toggleDrawer(true)}>
+                <MenuIcon sx={{ color: "var(--main-color)" }} />
+              </IconButton>
+            )}
+          </Box>
         </Box>
 
-        <Box sx={{ color: 'var(--main-color)', width:'75%', display: {xs:'contents',md:'flex'}, flexDirection: 'row', justifyContent: 'space-evenly' }}>
-          {!isMediumScreen ? (
-            // Show desktop nav links
-            ["Home", "Pages", "Services", "Blog", "Contact Us", "Search"].map((text, index) => (
-              <Typography
-                key={index}
-                sx={{
-                  position: "relative",
-                  "&:hover": {
-                    cursor: "pointer",
-                    color: "var(--orange-color)",
-                    transition: "0.4s ease-in-out",
-                  },
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    bottom: -2,
-                    left: 0,
-                    width: "0%",
-                    height: "2px",
-                    backgroundColor: "var(--orange-color)",
-                    transition: "width 0.4s ease-in-out",
-                  },
-                  "&:hover::after": {
-                    width: "100%",
-                  },
-                }}
-              >
-                {text}
-              </Typography>
-            ))
-          ) : (
-            // Show mobile menu icon for medium screens
-            <IconButton onClick={() => toggleDrawer(true)}>
-              <MenuIcon sx={{ color: "var(--main-color)" }} />
-            </IconButton>
-          )}
-        </Box>
-      </Box>
-
-      {/* Drawer for medium screens */}
-      <Drawer
-        anchor="left"
-        open={isDrawerOpen}
-        onClose={() => toggleDrawer(false)}
-      >
-        {list()}
-      </Drawer>
-    </Container>
+        {/* Drawer for medium screens */}
+        <Drawer
+          anchor="left"
+          open={isDrawerOpen}
+          onClose={() => toggleDrawer(false)}
+        >
+          {list()}
+        </Drawer>
+      </Container>
+    </Box>
   );
 }

@@ -10,7 +10,7 @@ import "./hero1.css";
 
 export default function hero1() {
   return (
-    <Container>
+    <Container sx={{pt:'150px'}}>
       <Stack
         sx={{
           display: "flex",
