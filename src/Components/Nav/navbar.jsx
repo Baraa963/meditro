@@ -1,113 +1,81 @@
-import { Box, Typography, Container, Drawer, IconButton } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Container,
+  Drawer,
+  IconButton,
+  Paper,
+  MenuItem,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from "@mui/material";
 import { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
+import { ExpandMore } from "@mui/icons-material";
 
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMediumScreen, setIsMediumScreen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hoverIndex, setHoverIndex] = useState(null);
 
-  // Detect screen size changes to toggle drawer visibility
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 800) {
         setIsMediumScreen(true);
       } else {
         setIsMediumScreen(false);
-        setIsDrawerOpen(false); // Close the drawer if screen size is larger
+        setIsDrawerOpen(false);
       }
     };
-
-    // Listen for window resize
     window.addEventListener("resize", handleResize);
-    handleResize(); // Check screen size on mount
-
-    return () => {
-      window.removeEventListener("resize", handleResize); // Cleanup on unmount
-    };
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const toggleDrawer = (open) => {
-    setIsDrawerOpen(open);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const list = () => (
-    <Box
-      sx={{ width: 250 }}
-      role="presentation"
-      onClick={() => setIsDrawerOpen(false)}
-      onKeyDown={() => setIsDrawerOpen(false)}
-    >
-      {/* Show logo inside the Drawer */}
-      <Box sx={{ padding: "20px", textAlign: "left" }}>
-        <img src={logo} alt="Logo" style={{ width: "150px" }} />
-      </Box>
 
-      {/* List of menu items */}
-      {["Home", "Pages", "Services", "Blog", "Contact Us", "Search"].map(
-        (text, index) => (
-          <Typography
-            key={index}
-            sx={{
-              position: "relative",
-              padding: "15px 20px",
-              "&:hover": {
-                cursor: "pointer",
-                color: "var(--orange-color)",
-                transition: "0.4s ease-in-out",
-                transform: "translateX(10px)",
-              },
-              "&:active": {
-                transform: "translateX(0)",
-                transition: "transform 0.2s ease-out",
-              },
-              "&::after": {
-                content: '""',
-                position: "absolute",
-                bottom: -2,
-                left: 0,
-                width: "0%",
-                height: "2px",
-                backgroundColor: "var(--orange-color)",
-                transition: "width 0.4s ease-in-out",
-              },
-              "&:hover::after": {
-                width: "100%",
-              },
-            }}
-          >
-            {text}
-          </Typography>
-        )
-      )}
-    </Box>
-  );
+  const menuItems = [
+    "Home",
+    "Pages",
+    "Services",
+    "Blog",
+    "Contact Us",
+    "Search",
+  ];
+
+  // Define submenu options for each menu item
+  const subMenuOptions = {
+    Pages: [
+      "About Us",
+      "Our Team",
+      "FAQ'S",
+      "Booking",
+      "Error 404",
+      "Login / Register",
+    ],
+    Services: ["Service", "Service Detail"],
+    Blog: ["Blogs", "Blog Detail"],
+  };
 
   return (
     <Box
-    sx={{
-      width: "100%",
-      backgroundColor: isScrolled ? "#fff" : "transparent",
-      position: "fixed",
-      zIndex: 3,
-      transition: "background-color 0.3s ease-in-out",
-    }}
+      sx={{
+        width: "100%",
+        backgroundColor: isScrolled ? "#fff" : "transparent",
+        position: "fixed",
+        zIndex: 3,
+        transition: "background-color 0.3s ease-in-out",
+      }}
     >
       <Container sx={{ padding: "25px 10px" }}>
         <Box
@@ -129,7 +97,6 @@ export default function Navbar() {
           >
             <img src={logo} alt="Logo" />
           </Box>
-
           <Box
             sx={{
               color: "var(--main-color)",
@@ -140,13 +107,14 @@ export default function Navbar() {
             }}
           >
             {!isMediumScreen ? (
-              // Show desktop nav links
-              ["Home", "Pages", "Services", "Blog", "Contact Us", "Search"].map(
-                (text, index) => (
+              menuItems.map((text, index) => (
+                <Box key={index} sx={{ position: "relative" }}>
                   <Typography
-                    key={index}
+                    onMouseEnter={() => setHoverIndex(index)}
+                    onMouseLeave={() => setHoverIndex(null)}
                     sx={{
                       position: "relative",
+                      padding: "15px 20px",
                       "&:hover": {
                         cursor: "pointer",
                         color: "var(--orange-color)",
@@ -155,7 +123,7 @@ export default function Navbar() {
                       "&::after": {
                         content: '""',
                         position: "absolute",
-                        bottom: -2,
+                        bottom: 0,
                         left: 0,
                         width: "0%",
                         height: "2px",
@@ -169,24 +137,97 @@ export default function Navbar() {
                   >
                     {text}
                   </Typography>
-                )
-              )
+                  {hoverIndex === index && subMenuOptions[text] && (
+                    <Paper
+                      sx={{
+                        position: "absolute",
+                        top: "100%",
+                        left: 0,
+                        zIndex: 4,
+                        minWidth: "200px",
+                        backgroundColor: "#fff",
+                        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                        padding: "10px 0",
+                      }}
+                      onMouseEnter={() => setHoverIndex(index)}
+                      onMouseLeave={() => setHoverIndex(null)}
+                    >
+                      {subMenuOptions[text].map((option, i) => (
+                        <MenuItem key={i} sx={{ padding: "10px 20px" }}>
+                          {option}
+                        </MenuItem>
+                      ))}
+                    </Paper>
+                  )}
+                </Box>
+              ))
             ) : (
-              // Show mobile menu icon for medium screens
-              <IconButton onClick={() => toggleDrawer(true)}>
+              <IconButton onClick={() => setIsDrawerOpen(true)}>
                 <MenuIcon sx={{ color: "var(--main-color)" }} />
               </IconButton>
             )}
           </Box>
         </Box>
-
-        {/* Drawer for medium screens */}
         <Drawer
           anchor="left"
           open={isDrawerOpen}
-          onClose={() => toggleDrawer(false)}
+          onClose={() => setIsDrawerOpen(false)}
         >
-          {list()}
+          <Box sx={{ width: 250 }}>
+            <Box sx={{ padding: "20px", textAlign: "left" }}>
+              <img src={logo} alt="Logo" style={{ width: "150px" }} />
+            </Box>
+            {menuItems
+              .filter(
+                (text) =>
+                  text !== "Pages" && text !== "Services" && text !== "Blog"
+              ) // Filter out Pages, Services, and Blog from top-level items
+              .map((text, index) => (
+                <Box key={index}>
+                  <Typography sx={{ padding: "15px 20px", cursor: "pointer" }}>
+                    {text}
+                  </Typography>
+                  {subMenuOptions[text] && (
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMore />}
+                        sx={{ padding: "0 20px" }}
+                      >
+                        <Typography>{text}</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails sx={{ padding: "10px 20px" }}>
+                        {subMenuOptions[text].map((option, i) => (
+                          <MenuItem key={i} sx={{ padding: "10px 20px" }}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </AccordionDetails>
+                    </Accordion>
+                  )}
+                </Box>
+              ))}
+            {["Pages", "Services", "Blog"].map((text, index) => (
+              <Box key={index}>
+                {subMenuOptions[text] && (
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMore />}
+                      sx={{ padding: "0 20px" }}
+                    >
+                      <Typography>{text}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails sx={{ padding: "10px 20px" }}>
+                      {subMenuOptions[text].map((option, i) => (
+                        <MenuItem key={i} sx={{ padding: "10px 20px" }}>
+                          {option}
+                        </MenuItem>
+                      ))}
+                    </AccordionDetails>
+                  </Accordion>
+                )}
+              </Box>
+            ))}
+          </Box>
         </Drawer>
       </Container>
     </Box>

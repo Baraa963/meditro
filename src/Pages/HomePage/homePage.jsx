@@ -8,13 +8,13 @@ import BookAppointment from '../../Components/Home/BookAppointment/bookAppointme
 import Services from '../../Components/Home/Services/services'
 import Testimonial from "../../Components/Home/Testimonial/testimonial";
 import LatestNews from "../../Components/Home/LatestNews/latestNews";
-import Footer from '../../Components/Footer/footer'
+import Footer from '../../Components/Footer/footer';
+import AboutUsPage from "../../Pages/AboutUsPage/aboutUsPage";
 export default function homePage() {
   return (
     <>
       <div className="wrapper">
         <Navbar />
-        {/* <Home/> */}
         <Hero1 />
       <img style={{width:'100%'}} src={Shape}/>
       </div>
@@ -28,7 +28,7 @@ export default function homePage() {
 
       <Footer/>
       </div>
-
+{/* <AboutUsPage/> */}
       
     </>
   );
