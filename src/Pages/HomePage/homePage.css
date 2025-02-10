@@ -5,4 +5,11 @@
     background-repeat: no-repeat; /* Görüntünün tekrarlamasını engeller */
     height: auto; /* Ekran yüksekliğine uyacak şekilde ayarlar */
   }
+  .fo-wrapper{
+    background-image: url(../../assets/footerImg.png);
+    background-size: cover; /* Görüntüyü kapsayacak şekilde ayarlar */
+    background-position: center; /* Görüntüyü ortalar */
+    background-repeat: no-repeat; /* Görüntünün tekrarlamasını engeller */
+    height: 200vh; /* Ekran yüksekliğine uyacak şekilde ayarlar */
+  }
   

@@ -7,6 +7,8 @@ import "./homePage.css";
 import BookAppointment from '../../Components/Home/BookAppointment/bookAppointment'
 import Services from '../../Components/Home/Services/services'
 import Testimonial from "../../Components/Home/Testimonial/testimonial";
+import LatestNews from "../../Components/Home/LatestNews/latestNews";
+import Footer from '../../Components/Footer/footer'
 export default function homePage() {
   return (
     <>
@@ -21,6 +23,12 @@ export default function homePage() {
       <BookAppointment/>
       <Services/>
       <Testimonial/>
+      <LatestNews/>
+      <div className="">
+
+      <Footer/>
+      </div>
+
       
     </>
   );
