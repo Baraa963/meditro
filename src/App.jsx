@@ -1,5 +1,7 @@
 import "./App.css";
 import HomePage from "./Pages/HomePage/homePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AboutUsPage from "./Pages/AboutUsPage/aboutUsPage";
 function App() {
   return (
     <>
@@ -9,7 +11,13 @@ function App() {
       
     </div>
     <AboutUs/> */}
-    <HomePage/>
+     <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about-us" element={<AboutUsPage />} />
+      </Routes>
+    </Router>
+    {/* <HomePage/> */}
     </>
   );
 }

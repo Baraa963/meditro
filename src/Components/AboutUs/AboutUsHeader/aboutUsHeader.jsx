@@ -1,13 +1,19 @@
 import { Box, Typography } from "@mui/material";
-import Navbar from "../../Components/Nav/navbar";
-import footerimg from "../../assets/footerImg.png";
-import footerBg from "../../assets/footerbg.jpg";
+import Navbar from "../../Nav/navbar";
+import footerimg from "../../../assets/footerImg.png";
+import footerBg from "../../../assets/footerbg.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import bluePlus from "../../assets/bluePlus.png";
-import blueCircle from "../../assets/blue circle.png";
-import blueLine from "../../assets/blue squiggly lines.png";
+import bluePlus from "../../../assets/bluePlus.png";
+import blueCircle from "../../../assets/blue circle.png";
+import blueLine from "../../../assets/blue squiggly lines.png";
+
+import { useNavigate } from "react-router-dom"; // useNavigate import edildi
+
 export default function aboutUsHeader() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const navigate = useNavigate(); // useNavigate hook'unu tanımla
+
   return (
     <>
       <Navbar />
@@ -93,16 +99,34 @@ export default function aboutUsHeader() {
             mb: "100px",
           }}
         >
-          <Box sx={{ display: "flex", gap: 1,boxShadow: '0 5px 30px 0 rgba(86, 90, 207, .3)' }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 1,
+              boxShadow: "0 5px 30px 0 rgba(86, 90, 207, .3)",
+            }}
+          >
             <FontAwesomeIcon fontSize={"20px"} icon={faHouse} color="#fff" />
             <Typography
-              sx={{ color: "#fff", fontWeight: "500", cursor: "pointer" ,zIndex:2}}
+              sx={{
+                color: "#fff",
+                fontWeight: "500",
+                cursor: "pointer",
+                zIndex: 2,
+              }}
+              onClick={() => navigate("/")} // Butona tıklandığında yönlendirme yap
             >
               Home
             </Typography>
             <Typography sx={{ color: "#fff" }}>/</Typography>
             <Typography
-              sx={{ color: "#fff", fontWeight: "500",cursor: "pointer" ,zIndex:2}}
+              sx={{
+                color: "#fff",
+                fontWeight: "500",
+                cursor: "pointer",
+                zIndex: 2,
+              }}
+              onClick={() => navigate("/about-us")} // Butona tıklandığında yönlendirme yap
             >
               About Us
             </Typography>
@@ -110,7 +134,5 @@ export default function aboutUsHeader() {
         </Box>
       </Box>
     </>
-  )
+  );
 }
-
-

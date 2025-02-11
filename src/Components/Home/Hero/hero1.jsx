@@ -5,12 +5,16 @@ import square1 from "../../../assets/square1.png";
 import traingle from "../../../assets/traingle.png";
 import plus from "../../../assets/plus.png";
 import line2 from "../../../assets/line2.png";
+import { useNavigate } from "react-router-dom"; // useNavigate import edildi
 
 import "./hero1.css";
 
 export default function hero1() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const navigate = useNavigate(); // useNavigate hook'unu tanımla
+
   return (
-    <Container sx={{pt:'150px'}}>
+    <Container sx={{ pt: "150px" }}>
       <Stack
         sx={{
           display: "flex",
@@ -29,7 +33,6 @@ export default function hero1() {
           <Typography
             variant="h5"
             sx={{
-              
               color: "var(--btn-color);",
               mb: "15px",
               fontSize: {
@@ -39,7 +42,7 @@ export default function hero1() {
               },
               backgroundImage: `url(${line2})`,
               backgroundPosition: "50%",
-              backgroundRepeat: 'repeat',
+              backgroundRepeat: "repeat",
               display: "inline-block",
               fontWeight: "700",
               margin: "0 0 20px",
@@ -97,6 +100,7 @@ export default function hero1() {
                 },
               }}
               variant="contained"
+              onClick={() => navigate("/about-us")}
             >
               Read More
             </Button>

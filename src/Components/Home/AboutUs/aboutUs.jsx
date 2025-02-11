@@ -15,7 +15,10 @@ import lines from "../../../assets/squiggly lines.png";
 import line from "../../../assets/line.png";
 import img1 from '../../../assets/aboutImg1.png'
 import img2 from '../../../assets/AboutImg2.png'
+import { useNavigate } from "react-router-dom";
 export default function AboutUs() {
+  const navigate = useNavigate();  // useNavigate hook'unu tanımla
+
   return (
     <Container>
       <Stack
@@ -369,6 +372,7 @@ export default function AboutUs() {
                 },
               }}
               variant="contained"
+              onClick={() => navigate("/about-us")} // Butona tıklandığında yönlendirme yap
             >
               Read More
           </Button>
