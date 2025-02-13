@@ -71,10 +71,13 @@ export default function latestNews() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        mb:'100px',
+        // mb:'100px',
       }}
     >
-      <Container sx={{ mt: "100px" }}>
+      <Container sx={{ 
+        // mt: "100px" 
+        }}>
+
         <Box
           sx={{
             width: "100%",
@@ -172,7 +175,7 @@ export default function latestNews() {
             }}
           >
             {LatestNewsData.map((data, index) => (
-              <SwiperSlide key={index} style={{ width: "100%" }}>
+              <SwiperSlide key={index} >
                 <Card
                   sx={{
                     backgroundColor: "#fff",
@@ -180,7 +183,7 @@ export default function latestNews() {
                     borderRadius: "10px",
                     padding: "20px",
                     transition: "all .5s",
-                    width: { sm: "95%", md: "95%", lg: "90%" },
+                    width: { sm: "95%", md: "95%", lg: "95%" },
                     height: "auto",
                     display: "flex",
                     flexDirection: "column",

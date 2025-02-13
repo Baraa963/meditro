@@ -1,4 +1,4 @@
-import AboutUsHeader from "../../Components/AboutUs/AboutUsHeader/aboutUsHeader";
+import AboutUsHeader from "../../Components/Header/header";
 import AboutUs from "../../Components/Home/AboutUs/aboutUs";
 import Testimonial from "../../Components/Home/Testimonial/testimonial";
 import LatestNews from "../../Components/Home/LatestNews/latestNews";
@@ -14,7 +14,7 @@ export default function AboutUsPage() {
   }, []);
   return (
     <>
-      <AboutUsHeader />
+      <AboutUsHeader ComponentName='About Us' Path='about-us'/>
       <AboutUs />
       <Section1 />
       <OurDoctor/>

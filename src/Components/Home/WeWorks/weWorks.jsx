@@ -55,7 +55,7 @@ export default function weWorks() {
 
       <Stack
         sx={{
-          mt: "120px",
+          // mt: "120px",
           display: "flex",
           backgroundImage: `url(${bg3})`,
           backgroundSize: "cover",

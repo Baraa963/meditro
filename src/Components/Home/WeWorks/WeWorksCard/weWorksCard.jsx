@@ -1,6 +1,9 @@
 import { Box, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function weWorksCard({ number, title, description }) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const navigate = useNavigate();  
   return (
     <Box
       className="border"
@@ -107,6 +110,7 @@ export default function weWorksCard({ number, title, description }) {
             color: "#f17732",
           },
         }}
+        onClick={()=>{navigate('/booking')}}
       >
         View More
       </Button>

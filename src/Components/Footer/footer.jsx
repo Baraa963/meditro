@@ -294,14 +294,24 @@ export default function Footer() {
           </Grid>
         </Grid>
 
-        <Box sx={{ mt: "30px",mb:'30px',zIndex:2 }}>
-          <Divider>
+        <Box sx={{ mt: "30px", mb: "30px", zIndex: 2 }}>
+          <Divider
+            sx={(theme) => ({
+              [theme.breakpoints.only("xs")]: {
+                "& .MuiDivider-wrapper": {
+                  whiteSpace: "pre-line",
+                  textAlign: "start",
+                },
+              },
+            })}
+          >
             Developer
             <Typography
               component="span"
               sx={{ color: "var(--orange-color)", fontWeight: "bold" }}
             >
-              {' '}Bara Fedallah.{' '}
+              {" "}
+              Bara Fedallah.{" "}
             </Typography>
             All rights reserved
           </Divider>

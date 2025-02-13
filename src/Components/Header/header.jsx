@@ -1,16 +1,17 @@
+/* eslint-disable react/prop-types */
 import { Box, Typography } from "@mui/material";
-import Navbar from "../../Nav/navbar";
-import footerimg from "../../../assets/footerImg.png";
-import footerBg from "../../../assets/footerbg.jpg";
+import Navbar from "../Nav/navbar";
+import footerimg from "../../assets/footerImg.png";
+import footerBg from "../../assets/footerbg.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import bluePlus from "../../../assets/bluePlus.png";
-import blueCircle from "../../../assets/blue circle.png";
-import blueLine from "../../../assets/blue squiggly lines.png";
+import bluePlus from "../../assets/bluePlus.png";
+import blueCircle from "../../assets/blue circle.png";
+import blueLine from "../../assets/blue squiggly lines.png";
 
 import { useNavigate } from "react-router-dom"; // useNavigate import edildi
 
-export default function aboutUsHeader() {
+export default function Header({ComponentName,Path}) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const navigate = useNavigate(); // useNavigate hook'unu tanımla
 
@@ -78,12 +79,13 @@ export default function aboutUsHeader() {
         />
         <Typography
           sx={{
-            fontSize: "36px",
+            fontSize: "62px",
             fontWeight: "600",
             color: "var(--main-color)",
+            letterSpacing:'2px'
           }}
         >
-          About Us
+          {ComponentName}
         </Typography>
         <Box
           sx={{
@@ -91,7 +93,7 @@ export default function aboutUsHeader() {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            width: "250px",
+            width: "230px",
             height: "auto",
             backgroundColor: "var(--btn-color)",
             p: "15px 10px",
@@ -126,9 +128,9 @@ export default function aboutUsHeader() {
                 cursor: "pointer",
                 zIndex: 2,
               }}
-              onClick={() => navigate("/about-us")} // Butona tıklandığında yönlendirme yap
+              onClick={() => navigate(`/${Path}`)} // Butona tıklandığında yönlendirme yap
             >
-              About Us
+              {ComponentName}
             </Typography>
           </Box>
         </Box>

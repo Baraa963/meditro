@@ -36,17 +36,17 @@ export default function Section1() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        py:14,
-        my:14,
+        py: 10,
+        my: 10,
       }}
     >
       <Container
         sx={{
           display: "flex",
           flexDirection: { sm: "column", md: "row" },
-          justifyContent:'center',    
-          alignContent:'center',      
-          flexWrap:'wrap',
+          justifyContent: "center",
+          alignContent: "center",
+          flexWrap: "wrap",
           gap: 4,
         }}
       >
@@ -56,12 +56,13 @@ export default function Section1() {
               key={index}
               sx={{
                 position: "relative",
-                width: { sm: "70%", md:'46%',lg: "22%" },
+                width: { sm: "70%", md: "46%", lg: "22%" },
                 textAlign: "center",
                 display: "flex",
                 alignItems: "center",
-                justifyContent:'center',
-                
+                justifyContent: "center",
+                transition: "all 0.7s",
+
                 "&::after": {
                   content: '""',
                   position: "absolute",
@@ -89,11 +90,18 @@ export default function Section1() {
                   margin: "15px 0 0 15px",
                   width: "100%",
                   position: "relative",
-                  transition: "all 0.5s",
+                  transition: "all 0.8s",
                   zIndex: 2, // İçeriği after'ın üstüne çıkarmak için
+                  "&:hover": {
+                    backgroundColor: "#565acf",
+                  },
+                  "&:hover .text": {
+                    color: "#fff",
+                  },
                 }}
               >
                 <Typography
+                  className="text"
                   sx={{
                     color: "var(--orange-color)",
                     fontWeight: "600",
@@ -106,6 +114,7 @@ export default function Section1() {
                 </Typography>
 
                 <Typography
+                  className="text"
                   sx={{
                     color: "#1f2278",
                     fontWeight: "700",
@@ -118,6 +127,7 @@ export default function Section1() {
                 </Typography>
 
                 <Typography
+                  className="text"
                   sx={{
                     fontWeight: "500",
                     fontSize: "14px",

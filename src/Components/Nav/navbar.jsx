@@ -11,12 +11,14 @@ import {
   AccordionDetails,
 } from "@mui/material";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/logo.png";
-import "./navbar.css";
 import { ExpandMore } from "@mui/icons-material";
 
 export default function Navbar() {
+  const navigate = useNavigate(); 
+
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMediumScreen, setIsMediumScreen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,12 +26,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 800) {
-        setIsMediumScreen(true);
-      } else {
-        setIsMediumScreen(false);
-        setIsDrawerOpen(false);
-      }
+      setIsMediumScreen(window.innerWidth <= 800);
+      if (window.innerWidth > 800) setIsDrawerOpen(false);
     };
     window.addEventListener("resize", handleResize);
     handleResize();
@@ -37,35 +35,41 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuItems = [
-    "Home",
-    "Pages",
-    "Services",
-    "Blog",
-    "Contact Us",
-    "Search",
+  const navItems = [
+    { title: "Home", path: "/" },
+    {
+      title: "Pages",
+      subMenu: [
+        { title: "About Us", path: "/about-us" },
+        { title: "Our Team", path: "/team" },
+        { title: "FAQ'S", path: "/faq" },
+        { title: "Booking", path: "/booking" },
+        { title: "Error 404", path: "/404" },
+        { title: "Login / Register", path: "/login" },
+      ],
+    },
+    {
+      title: "Services",
+      subMenu: [
+        { title: "Service", path: "/service" },
+        { title: "Service Detail", path: "/service-detail" },
+      ],
+    },
+    {
+      title: "Blog",
+      subMenu: [
+        { title: "Blogs", path: "/blogs" },
+        { title: "Blog Detail", path: "/blog-detail" },
+      ],
+    },
+    { title: "Contact Us", path: "/contact" },
+    { title: "Search", path: "/search" },
   ];
-
-  // Define submenu options for each menu item
-  const subMenuOptions = {
-    Pages: [
-      "About Us",
-      "Our Team",
-      "FAQ'S",
-      "Booking",
-      "Error 404",
-      "Login / Register",
-    ],
-    Services: ["Service", "Service Detail"],
-    Blog: ["Blogs", "Blog Detail"],
-  };
 
   return (
     <Box
@@ -80,43 +84,32 @@ export default function Navbar() {
       <Container sx={{ padding: "25px 10px" }}>
         <Box
           sx={{
-            width: "100%",
             display: "flex",
-            flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
           }}
         >
-          <Box
-            sx={{
-              width: "25%",
-              display: "flex",
-              justifyContent: "start",
-              alignItems: "center",
-            }}
-          >
+          <Box sx={{ width: "25%", display: "flex", alignItems: "center" }}>
             <img src={logo} alt="Logo" />
           </Box>
           <Box
             sx={{
-              color: "var(--main-color)",
               width: "75%",
               display: { xs: "contents", md: "flex" },
-              flexDirection: "row",
               justifyContent: "space-evenly",
             }}
           >
             {!isMediumScreen ? (
-              menuItems.map((text, index) => (
+              navItems.map((item, index) => (
                 <Box key={index} sx={{ position: "relative" }}>
                   <Typography
+                    onClick={() => item.path && navigate(item.path)} // 🚀 Ana menü yönlendirme
                     onMouseEnter={() => setHoverIndex(index)}
                     onMouseLeave={() => setHoverIndex(null)}
                     sx={{
-                      position: "relative",
                       padding: "15px 20px",
+                      cursor: "pointer",
                       "&:hover": {
-                        cursor: "pointer",
                         color: "var(--orange-color)",
                         transition: "0.4s ease-in-out",
                       },
@@ -130,14 +123,12 @@ export default function Navbar() {
                         backgroundColor: "var(--orange-color)",
                         transition: "width 0.4s ease-in-out",
                       },
-                      "&:hover::after": {
-                        width: "100%",
-                      },
+                      "&:hover::after": { width: "100%" },
                     }}
                   >
-                    {text}
+                    {item.title}
                   </Typography>
-                  {hoverIndex === index && subMenuOptions[text] && (
+                  {hoverIndex === index && item.subMenu && (
                     <Paper
                       sx={{
                         position: "absolute",
@@ -152,9 +143,13 @@ export default function Navbar() {
                       onMouseEnter={() => setHoverIndex(index)}
                       onMouseLeave={() => setHoverIndex(null)}
                     >
-                      {subMenuOptions[text].map((option, i) => (
-                        <MenuItem key={i} sx={{ padding: "10px 20px" }}>
-                          {option}
+                      {item.subMenu.map((option, i) => (
+                        <MenuItem
+                          key={i}
+                          sx={{ padding: "10px 20px" }}
+                          onClick={() => navigate(option.path)}
+                        >
+                          {option.title}
                         </MenuItem>
                       ))}
                     </Paper>
@@ -168,62 +163,40 @@ export default function Navbar() {
             )}
           </Box>
         </Box>
+
         <Drawer
           anchor="left"
           open={isDrawerOpen}
           onClose={() => setIsDrawerOpen(false)}
         >
-          <Box sx={{ width: 250 }}>
-            <Box sx={{ padding: "20px", textAlign: "left" }}>
-              <img src={logo} alt="Logo" style={{ width: "150px" }} />
-            </Box>
-            {menuItems
-              .filter(
-                (text) =>
-                  text !== "Pages" && text !== "Services" && text !== "Blog"
-              ) // Filter out Pages, Services, and Blog from top-level items
-              .map((text, index) => (
-                <Box key={index}>
-                  <Typography sx={{ padding: "15px 20px", cursor: "pointer" }}>
-                    {text}
-                  </Typography>
-                  {subMenuOptions[text] && (
-                    <Accordion>
-                      <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        sx={{ padding: "0 20px" }}
-                      >
-                        <Typography>{text}</Typography>
-                      </AccordionSummary>
-                      <AccordionDetails sx={{ padding: "10px 20px" }}>
-                        {subMenuOptions[text].map((option, i) => (
-                          <MenuItem key={i} sx={{ padding: "10px 20px" }}>
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </AccordionDetails>
-                    </Accordion>
-                  )}
-                </Box>
-              ))}
-            {["Pages", "Services", "Blog"].map((text, index) => (
+          <Box sx={{ width: 250, padding: "20px" }}>
+            <img src={logo} alt="Logo" style={{ width: "150px" }} />
+            {navItems.map((item, index) => (
               <Box key={index}>
-                {subMenuOptions[text] && (
+                {item.subMenu ? (
                   <Accordion>
-                    <AccordionSummary
-                      expandIcon={<ExpandMore />}
-                      sx={{ padding: "0 20px" }}
-                    >
-                      <Typography>{text}</Typography>
+                    <AccordionSummary expandIcon={<ExpandMore />}>
+                      <Typography>{item.title}</Typography>
                     </AccordionSummary>
-                    <AccordionDetails sx={{ padding: "10px 20px" }}>
-                      {subMenuOptions[text].map((option, i) => (
-                        <MenuItem key={i} sx={{ padding: "10px 20px" }}>
-                          {option}
+                    <AccordionDetails>
+                      {item.subMenu.map((option, i) => (
+                        <MenuItem
+                          key={i}
+                          sx={{ padding: "10px 20px" }}
+                          onClick={() => navigate(option.path)}
+                        >
+                          {option.title}
                         </MenuItem>
                       ))}
                     </AccordionDetails>
                   </Accordion>
+                ) : (
+                  <Typography
+                    sx={{ padding: "15px 20px", cursor: "pointer" }}
+                    onClick={() => item.path && navigate(item.path)}
+                  >
+                    {item.title}
+                  </Typography>
                 )}
               </Box>
             ))}

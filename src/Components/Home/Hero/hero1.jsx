@@ -7,7 +7,6 @@ import plus from "../../../assets/plus.png";
 import line2 from "../../../assets/line2.png";
 import { useNavigate } from "react-router-dom"; // useNavigate import edildi
 
-import "./hero1.css";
 
 export default function hero1() {
   // eslint-disable-next-line react-hooks/rules-of-hooks

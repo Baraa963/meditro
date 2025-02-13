@@ -24,7 +24,7 @@ export default function ourDoctor() {
     },
   ];
   return (
-    <Container sx={{ pb: 20, display: "flex", flexDirection: "column" }}>
+    <Container sx={{ pb: 15, display: "flex", flexDirection: "column" }}>
       <Box
         sx={{
           width: "100%",
@@ -189,7 +189,7 @@ export default function ourDoctor() {
 
                 <Box sx={{ color: "#f17732", display: "flex", gap: 3 }}>
                   <IconButton
-                    sx={{ p: "10px", backgroundColor: "var(--btn-color)" }}
+                    sx={{ p: "10px", backgroundColor: "var(--btn-color)",transition:'all 0.6s' }}
                   >
                     <FontAwesomeIcon
                       icon={faFacebook}
