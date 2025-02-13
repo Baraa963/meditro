@@ -103,7 +103,7 @@ export default function Navbar() {
               navItems.map((item, index) => (
                 <Box key={index} sx={{ position: "relative" }}>
                   <Typography
-                    onClick={() => item.path && navigate(item.path)} // 🚀 Ana menü yönlendirme
+                    onClick={() => item.path && navigate(item.path)}
                     onMouseEnter={() => setHoverIndex(index)}
                     onMouseLeave={() => setHoverIndex(null)}
                     sx={{

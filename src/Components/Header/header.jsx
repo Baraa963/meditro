@@ -93,7 +93,7 @@ export default function Header({ComponentName,Path}) {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            width: "230px",
+            width: "250px",
             height: "auto",
             backgroundColor: "var(--btn-color)",
             p: "15px 10px",

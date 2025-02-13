@@ -1,6 +1,9 @@
 import { Box, Card, Container, IconButton, Typography } from "@mui/material";
-import line from "../../../assets/line.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import blueLine from "../../../assets/blue squiggly lines.png";
+import traingle from "../../../assets/traingle.png";
+import line from "../../../assets/line.png";
 import ourDoctorCardBg2 from "../../../assets/ourDoctorCardBg2.png";
 import ourDoctorCardBg1 from "../../../assets/ourDoctorCardBg1.png";
 import doctor1 from "../../../assets/doc4.jpg";
@@ -33,8 +36,33 @@ export default function ourDoctor() {
           justifyContent: "center",
           alignItems: "center",
           height: "auto",
+          position: "relative",
         }}
       >
+        <img
+          src={blueLine}
+          style={{
+            width: "10%",
+            opacity: "0.9",
+            position: "absolute",
+            right: "15%",
+            top: "0%",
+            animation: "move1 2.5s infinite alternate-reverse",
+            
+          }}
+        />
+        <img
+          src={traingle}
+          style={{
+            width: "6%",
+            opacity: "0.9",
+            position: "absolute",
+            left: "15%",
+            bottom: "20%",
+            animation: "move6 4s infinite alternate-reverse",
+            
+          }}
+        />
         <Typography
           sx={{
             fontSize: "22px",
@@ -75,7 +103,7 @@ export default function ourDoctor() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
-          alignItems:'center',
+          alignItems: "center",
           gap: 4,
           flexWrap: "wrap",
         }}
@@ -90,12 +118,12 @@ export default function ourDoctor() {
                 borderRadius: "10px",
                 padding: "20px",
                 transition: "all .5s",
-                width: { xs:'80%',sm: "60%", md: "40%", lg: "31.4%" },
+                width: { xs: "80%", sm: "60%", md: "40%", lg: "31.4%" },
                 height: "auto",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems:'center',
+                alignItems: "center",
                 gap: 4,
                 "&:hover": {
                   border: "2px solid #fff",
@@ -130,8 +158,8 @@ export default function ourDoctor() {
                       width: "72%",
                       opacity: "0.3",
                       position: "absolute",
-                      top: '9%',
-                      left: '15%',
+                      top: "9%",
+                      left: "15%",
                       transition: "all 0.7s",
                       "&:hover": {
                         opacity: "1",
@@ -152,8 +180,8 @@ export default function ourDoctor() {
                       WebkitMaskPosition: "center center",
                       width: "62%",
                       position: "absolute",
-                      top: '16%',
-                      left: '20%',
+                      top: "16%",
+                      left: "20%",
                     }}
                   />
                 </Box>
@@ -189,7 +217,11 @@ export default function ourDoctor() {
 
                 <Box sx={{ color: "#f17732", display: "flex", gap: 3 }}>
                   <IconButton
-                    sx={{ p: "10px", backgroundColor: "var(--btn-color)",transition:'all 0.6s' }}
+                    sx={{
+                      p: "10px",
+                      backgroundColor: "var(--btn-color)",
+                      transition: "all 0.6s",
+                    }}
                   >
                     <FontAwesomeIcon
                       icon={faFacebook}
