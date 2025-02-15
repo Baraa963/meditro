@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-key */
 import ServicesHeader from "../../Components/Header/header";
 import ServicesCards from "../../Components/Home/Services/ServiceCards/servicesCards";
-import Section1 from '../../Components/AboutUs/Section1/section1'
+import Section1 from "../../Components/AboutUs/Section1/section1";
 import OurDoctor from "../../Components/AboutUs/OurDoctor/ourDoctor";
 import LatestNews from "../../Components/Home/LatestNews/latestNews";
 import Footer from "../../Components/Footer/footer";
@@ -52,14 +52,14 @@ export default function servicesPage() {
   ];
   return (
     <>
-      <ServicesHeader ComponentName="Services" Path='service'/>
+      <ServicesHeader ComponentName="Services" Path="service" />
       <Box
         sx={{
           width: "100%",
           backgroundColor: "var(--btn-color)",
           height: "auto",
           display: "flex",
-          p: { xs: 3, sm: 8 }, 
+          p: { xs: 3, sm: 8 },
         }}
       >
         <Box
@@ -81,10 +81,10 @@ export default function servicesPage() {
         </Box>
       </Box>
 
-    <Section1/>
-    <OurDoctor/>
-    <LatestNews/>
-    <Footer/>
+      <Section1 />
+      <OurDoctor />
+      <LatestNews />
+      <Footer />
     </>
   );
 }

@@ -9,14 +9,14 @@ export default function serviceDetails() {
         width: "100%",
         p: "40px 40px",
         display: "flex",
-        flexDirection: { lg: "row" },
+        flexDirection: {xs:'column', lg: "row" },
         justifyContent: "center",
         gap: 4,
       }}
     >
       <Stack
         sx={{
-          width: { md: "95%", lg: "67%" },
+          width: { md: "100%", lg: "67%" },
           height: "auto",
           display: "flex",
           flexDirection: "column",
@@ -31,10 +31,10 @@ export default function serviceDetails() {
         sx={{
           position: "sticky",
           top: "110px",
-          maxHeight: "85vh", // Yüksekliği sınırlama
+          maxHeight: "fit-content", // Yüksekliği sınırlama
           overflowY: "auto", // İçerik taşarsa scroll ekle
           height: "100vh",
-          width: { md: "45%", lg: "32%" },
+          width: { xs: "100%", lg: "32%" },
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#fff",

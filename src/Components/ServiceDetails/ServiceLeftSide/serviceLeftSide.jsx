@@ -9,7 +9,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 export default function serviceLeftSide() {
   const data = [
     "Then along come two they",
-    "That&apos;s just a little bit more than",
+    "That's just a little bit more than",
     "Standard dummy text ever since",
     "Simply dummy text of the printing",
     "Make a type specimen book",
@@ -53,7 +53,7 @@ export default function serviceLeftSide() {
   ];
 
   return (
-    <Stack>
+    <Stack sx={{ display: "flex", gap: 4 }}>
       <Box
         component="img"
         src={newsImg}
@@ -96,7 +96,7 @@ export default function serviceLeftSide() {
         }}
       >
         {/* left side*/}
-        <Stack className="border" sx={{ width: { xs: "100%", lg: "50%" } }}>
+        <Stack sx={{ width: { xs: "100%", lg: "52%" } }}>
           {data.map((text, index) => {
             return (
               <Box
@@ -106,7 +106,7 @@ export default function serviceLeftSide() {
                   flexDirection: "row",
                   alignItems: "center",
                   gap: 1,
-                  m: "10px",
+                  m: "10px 0px",
                 }}
               >
                 <Typography
@@ -154,16 +154,17 @@ export default function serviceLeftSide() {
         </Stack>
 
         {/* right side*/}
-        <Stack
-          className="border"
-          sx={{ width: { xs: "100%", lg: "47%" }, pr: 2 }}
-        >
+        <Stack sx={{ width: { xs: "100%", lg: "45%" }, pr: 2 }}>
           {sliderData.map((data, index) => {
             return (
               <Box key={index}>
                 <Typography
                   variant="h6"
-                  sx={{ color: "var(--main-color)", fontWeight: "600" }}
+                  sx={{
+                    color: "var(--main-color)",
+                    fontWeight: "600",
+                    mb: { xs: "23px", sm: "3px" },
+                  }}
                   gutterBottom
                 >
                   {data.title}
@@ -227,7 +228,7 @@ export default function serviceLeftSide() {
         </Stack>
 
         {/*Popular Questions */}
-        <Stack sx={{ display: "flex", justifyContent: "center" }}>
+        <Stack sx={{ display: "flex", justifyContent: "center", gap: 4 }}>
           <Box>
             <Typography
               sx={{

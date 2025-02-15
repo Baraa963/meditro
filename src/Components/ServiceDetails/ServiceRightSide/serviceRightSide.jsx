@@ -12,8 +12,8 @@ export default function ServiceRightSide() {
   ];
 
   return (
-    <Stack sx={{ display: "flex", gap: 4 }}>
-      <Stack sx={{ width: "100%", display: "flex", gap: 1 }}>
+    <Stack sx={{ width:'100%'}}>
+      <Stack sx={{ width: "100%", display: "flex",justifyContent:'center', gap: 1 }}>
         {buttonsData.map((data, index) => (
           <Button
             key={index}

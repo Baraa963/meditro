@@ -1,4 +1,4 @@
-import { Box, Button,  Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
 // import { Box, Button, Card, Container, Stack, Typography } from "@mui/material";
 import line from "../../../assets/line.png";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,6 +16,7 @@ import Surgery from "../../../assets/SurgeryImg.png";
 import Vaccine from "../../../assets/VaccineImg.png";
 import Emergency from "../../../assets/EmergencyImg.png";
 import ServicesCards from "./ServiceCards/servicesCards";
+import { useNavigate } from "react-router-dom";
 export default function Services() {
   const services = [
     {
@@ -49,6 +50,7 @@ export default function Services() {
         "Phasellus venenatis porta rhoncus. Integer et viverra felis.",
     },
   ];
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -88,7 +90,7 @@ export default function Services() {
           opacity: "0.9",
           position: "absolute",
           left: "55%",
-          bottom: "17%",
+          bottom: "6%",
           animation: "move1 2.5s infinite alternate-reverse",
           zIndex: 2, // Resmi daha geriye atar
         }}
@@ -100,7 +102,7 @@ export default function Services() {
           opacity: "0.9",
           position: "absolute",
           left: "5%",
-          bottom: "17%",
+          bottom: "1%",
           animation: "move1 3.5s infinite alternate-reverse",
           zIndex: 2, // Resmi daha geriye atar
         }}
@@ -113,9 +115,10 @@ export default function Services() {
             flexDirection: { md: "column", lg: "row" },
             width: "100%",
             height: { md: "auto", lg: "85vh" },
-            // mb: "8vw",
+            gap: "25px",
           }}
         >
+          {/*Left Side */}
           <Box
             sx={{
               width: { md: "100%", lg: "45%" },
@@ -183,13 +186,16 @@ export default function Services() {
                   scale: 0.97,
                 },
               }}
+              onClick={() => {
+                navigate("/service");
+              }}
             >
               All Services
             </Button>
           </Box>
 
+          {/*Right Side */}
           <Box
-            className="border"
             sx={{
               width: { md: "100%", lg: "55%" },
               height: "auto",
@@ -235,7 +241,6 @@ export default function Services() {
               >
                 {services.map((service, index) => (
                   <SwiperSlide key={index} style={{ width: "300px" }}>
-
                     {/* <Box
                       sx={{
                         position: "relative",
@@ -343,13 +348,13 @@ export default function Services() {
                       </Card>
                     </Box> */}
 
-                    <ServicesCards data={service} width={'250px'}/>
-                  </SwiperSlide >
+                    <ServicesCards data={service} width={"250px"} />
+                  </SwiperSlide>
                 ))}
               </Swiper>
-             
             </Box>
           </Box>
+
         </Stack>
       </Container>
     </Box>
