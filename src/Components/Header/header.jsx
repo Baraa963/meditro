@@ -11,7 +11,7 @@ import blueLine from "../../assets/blue squiggly lines.png";
 
 import { useNavigate } from "react-router-dom"; // useNavigate import edildi
 
-export default function Header({ComponentName,Path}) {
+export default function Header({ ComponentName, Path }) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const navigate = useNavigate(); // useNavigate hook'unu tanımla
 
@@ -25,25 +25,28 @@ export default function Header({ComponentName,Path}) {
           justifyContent: "center",
           alignItems: "center",
           backgroundImage: `url(${footerBg})`, // Üstteki görseli footerimg yapın
-          backgroundPosition: "0 0",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "1300px",
-          height: "500px", // Yüksekliği belirleyin
-          position: "relative",
-          zIndex: 2, // footerimg için yüksek z-index
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          height: '420px',
+          overflow: 'hidden',
+          position: 'relative',
+          width: '100%',
+          zIndex: 2,
           "&::after": {
-            content: '""',
-            position: "absolute",
-            top: "150px",
-            left: 0,
-            width: "100%",
-            height: "300px", // Yüksekliği footerimg ile uyumlu yapın
             backgroundImage: `url(${footerimg})`, // Görseli buraya ekleyin
-            backgroundPosition: "0 0",
+            backgroundPosition: "top",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "1300px",
+            backgroundSize: "contain",
+            bottom: 0,
+            content: "''",
+            height: "100%",
+            left: 0,
+            position: "absolute",
+            width: "100%",
+            zIndex: 1,
             transform: "rotate(180deg)", // Görseli 180 derece döndürür
-            zIndex: 1, // footerBg'nin alt tarafta kalmasını sağla
+ 
+            
           },
         }}
       >
@@ -82,7 +85,7 @@ export default function Header({ComponentName,Path}) {
             fontSize: "62px",
             fontWeight: "600",
             color: "var(--main-color)",
-            letterSpacing:'2px'
+            letterSpacing: "2px",
           }}
         >
           {ComponentName}
@@ -98,7 +101,6 @@ export default function Header({ComponentName,Path}) {
             backgroundColor: "var(--btn-color)",
             p: "15px 10px",
             borderRadius: "8px",
-            mb: "100px",
           }}
         >
           <Box

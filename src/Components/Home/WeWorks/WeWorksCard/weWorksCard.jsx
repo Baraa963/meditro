@@ -6,7 +6,6 @@ export default function weWorksCard({ number, title, description }) {
   const navigate = useNavigate();  
   return (
     <Box
-      className="border"
       sx={{
         width: "290px",
         height: "370px",

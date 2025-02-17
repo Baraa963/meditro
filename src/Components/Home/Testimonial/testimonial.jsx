@@ -25,7 +25,14 @@ export default function Testimonial() {
   const swiperRef = useRef(null); // Create a reference for the Swiper instance
 
   return (
-    <Container>
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Box
         sx={{
           width: "100%",
@@ -62,7 +69,7 @@ export default function Testimonial() {
             fontSize: "22px",
             color: "var(--orange-color)",
             mb: "10px",
-            backgroundImage: `url(${line})`,
+            backgroundImage: `url(${line})`, // Görseli buraya ekleyin
             backgroundPosition: "50%",
             backgroundRepeat: "repeat",
             display: "inline-block",
@@ -102,7 +109,7 @@ export default function Testimonial() {
             lg: "row",
           },
           alignItems: "center",
-          justifyContent: "end",
+          justifyContent: "center",
           gap: 5,
           position: "relative",
         }}
@@ -205,7 +212,7 @@ export default function Testimonial() {
 
         <Box
           sx={{
-            width: { xs: "100%", sm: "100%", md: "80vw", lg: "55%" },
+            width: { xs: "100%", sm: "100%", md: "100%", lg: "50%" },
             height: "auto",
           }}
         >
@@ -219,8 +226,10 @@ export default function Testimonial() {
               disableOnInteraction: false, // Allow autoplay to continue after interaction
             }}
             style={{
+              display: "flex",
               borderRadius: "20px",
               width: "100%",
+              maxWidth: "90vw",
               height: "auto",
             }}
           >
@@ -229,8 +238,8 @@ export default function Testimonial() {
                 <Card
                   sx={{
                     backgroundColor: "var(--orange-color)",
-                    maxWidth: "90%",
-                    width: "90vw",
+                    width: "100%",
+                    maxWidth: "93%",
                     height: "auto",
                     borderRadius: "40px 0 40px 40px",
                     flexDirection: "column",
@@ -295,55 +304,54 @@ export default function Testimonial() {
                 </Card>
               </SwiperSlide>
             ))}
-
-            <Box
+          </Swiper>
+          <Box
+            sx={{
+              pl: "20px",
+              width: "180px",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Button
+              onClick={() => swiperRef.current.swiper.slidePrev()}
               sx={{
-                pl: "20px",
-                width: "170px",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
+                backgroundColor: "#ffe4d5", // doğru kullanım
+                borderRadius: "12px",
+                bottom: 0,
+                color: "#f17732",
+                fontSize: "24px", // İkon boyutunu uygun şekilde ayarladık
+                height: "50px",
+                transition: "all .5s", // Geçiş efektini koruduk
+                width: "50px",
+                display: "flex", // İkonun düzgün görünmesi için flex ekledik
+                justifyContent: "center", // İkonu ortaladık
+                alignItems: "center", // İkonu dikeyde ortaladık
               }}
             >
-              <Button
-                onClick={() => swiperRef.current.swiper.slidePrev()}
-                sx={{
-                  backgroundColor: "#ffe4d5", // doğru kullanım
-                  borderRadius: "12px",
-                  bottom: 0,
-                  color: "#f17732",
-                  fontSize: "24px", // İkon boyutunu uygun şekilde ayarladık
-                  height: "50px",
-                  transition: "all .5s", // Geçiş efektini koruduk
-                  width: "50px",
-                  display: "flex", // İkonun düzgün görünmesi için flex ekledik
-                  justifyContent: "center", // İkonu ortaladık
-                  alignItems: "center", // İkonu dikeyde ortaladık
-                }}
-              >
-                <ChevronLeftIcon />
-              </Button>
+              <ChevronLeftIcon />
+            </Button>
 
-              <Button
-                onClick={() => swiperRef.current.swiper.slideNext()}
-                sx={{
-                  backgroundColor: "#ffe4d5", // doğru kullanım
-                  borderRadius: "12px",
-                  bottom: 0,
-                  color: "#f17732",
-                  fontSize: "24px", // İkon boyutunu uygun şekilde ayarladık
-                  height: "50px",
-                  transition: "all .5s", // Geçiş efektini koruduk
-                  width: "50px",
-                  display: "flex", // İkonun düzgün görünmesi için flex ekledik
-                  justifyContent: "center", // İkonu ortaladık
-                  alignItems: "center", // İkonu dikeyde ortaladık
-                }}
-              >
-                <ChevronRightIcon />
-              </Button>
-            </Box>
-          </Swiper>
+            <Button
+              onClick={() => swiperRef.current.swiper.slideNext()}
+              sx={{
+                backgroundColor: "#ffe4d5", // doğru kullanım
+                borderRadius: "12px",
+                bottom: 0,
+                color: "#f17732",
+                fontSize: "24px", // İkon boyutunu uygun şekilde ayarladık
+                height: "50px",
+                transition: "all .5s", // Geçiş efektini koruduk
+                width: "50px",
+                display: "flex", // İkonun düzgün görünmesi için flex ekledik
+                justifyContent: "center", // İkonu ortaladık
+                alignItems: "center", // İkonu dikeyde ortaladık
+              }}
+            >
+              <ChevronRightIcon />
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Container>

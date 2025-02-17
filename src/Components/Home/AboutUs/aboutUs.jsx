@@ -203,6 +203,7 @@ export default function AboutUs() {
 
           <Box
             sx={{
+              width:'100%',
               display: "flex",
               mt: "45px",
               flexWrap: "wrap",

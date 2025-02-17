@@ -56,7 +56,7 @@ export default function bookAppointment() {
   };
 
   return (
-    <Container>
+    <Container sx={{display:'flex',width:'100%'}}>
       <Box
         sx={{
           display: "flex",

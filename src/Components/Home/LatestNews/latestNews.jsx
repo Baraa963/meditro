@@ -4,7 +4,7 @@ import newsBg from "../../../assets/newsBg.png";
 import blueCircle from "../../../assets/blueCircle2.png";
 import traingle from "../../../assets/traingle.png";
 import square from "../../../assets/aboutImg1.png";
-import blueLine from '../../../assets/blue squiggly lines.png';
+import blueLine from "../../../assets/blue squiggly lines.png";
 
 import newsImg1 from "../../../assets/newsImg1.jpg";
 import newsImg2 from "../../../assets/newsImg2.jpg";
@@ -74,10 +74,13 @@ export default function latestNews() {
         // mb:'100px',
       }}
     >
-      <Container sx={{ 
-        // mt: "100px" 
-        }}>
-
+      <Container
+        sx={
+          {
+            // mt: "100px"
+          }
+        }
+      >
         <Box
           sx={{
             width: "100%",
@@ -164,9 +167,9 @@ export default function latestNews() {
             style={{
               padding: "15px 0px",
               borderRadius: "20px",
-              width: "100%",
+              width: "95%",
               height: "auto",
-              position:'relative',
+              position: "relative",
             }}
             breakpoints={{
               500: { slidesPerView: 1 },
@@ -175,7 +178,7 @@ export default function latestNews() {
             }}
           >
             {LatestNewsData.map((data, index) => (
-              <SwiperSlide key={index} >
+              <SwiperSlide key={index}>
                 <Card
                   sx={{
                     backgroundColor: "#fff",
@@ -264,29 +267,29 @@ export default function latestNews() {
                 </Card>
               </SwiperSlide>
             ))}
-          <img
-            src={blueLine}
-            style={{
-              width: "9%",
-              position: "absolute",
-              bottom: "-2%",
-              right: "5%",
-              animation: "move3 5s infinite alternate-reverse",
-             zIndex:1
-            }}
-          />
-          </Swiper>
             <img
-              src={square}
+              src={blueLine}
               style={{
                 width: "9%",
                 position: "absolute",
-                bottom: "-15%",
-                left: "5%",
-                animation: "move1 5s infinite alternate-reverse",
-               zIndex:1
+                bottom: "-2%",
+                right: "5%",
+                animation: "move3 5s infinite alternate-reverse",
+                zIndex: 1,
               }}
             />
+          </Swiper>
+          <img
+            src={square}
+            style={{
+              width: "9%",
+              position: "absolute",
+              bottom: "-15%",
+              left: "5%",
+              animation: "move1 5s infinite alternate-reverse",
+              zIndex: 1,
+            }}
+          />
         </Box>
       </Container>
     </Box>

@@ -113,12 +113,13 @@ export default function ourDoctor() {
             <Card
               key={index}
               sx={{
+                
                 backgroundColor: "#fff",
                 border: "2px solid rgba(86, 90, 207, .2)",
                 borderRadius: "10px",
                 padding: "20px",
                 transition: "all .5s",
-                width: { xs: "80%", sm: "60%", md: "40%", lg: "31.4%" },
+                width: { xs: "80%", sm: "60%", md: "40%", lg: "31%" },
                 height: "auto",
                 display: "flex",
                 flexDirection: "column",
