@@ -5,7 +5,6 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -42,14 +41,7 @@ export default function BlogDetailsLeftSide() {
   ];
 
   return (
-    <Stack
-      className="border"
-      sx={{
-        width: { xs: "100%", sm: "100%", md: "68%" },
-        display: "flex",
-        gap: 2.5,
-      }}
-    >
+    <>
       <Box
         component="img"
         src={BlogDetailsImg1}
@@ -537,6 +529,6 @@ export default function BlogDetailsLeftSide() {
           Send
         </Button>
       </Box>
-    </Stack>
+    </>
   );
 }
