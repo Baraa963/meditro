@@ -1,32 +1,35 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Box, Container, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 
 export default function Section1() {
   const cardsData = [
     {
-      number: "120",
+      number: 120,
       title: "Years With You",
       description:
         "Etiam ante ante, molestie vitae cursus ac, pharetra euismod libero.",
     },
     {
-      number: "400",
+      number: 400,
       title: "Awards",
       description:
         "Etiam ante ante, molestie vitae cursus ac, pharetra euismod libero.",
     },
     {
-      number: "250",
+      number: 250,
       title: "Doctors",
       description:
         "Etiam ante ante, molestie vitae cursus ac, pharetra euismod libero.",
     },
     {
-      number: "800",
+      number: 800,
       title: "Satisfied Client",
       description:
         "Etiam ante ante, molestie vitae cursus ac, pharetra euismod libero.",
     },
   ];
+
   return (
     <Box
       sx={{
@@ -51,6 +54,22 @@ export default function Section1() {
         }}
       >
         {cardsData.map((card, index) => {
+          const [currentNumber, setCurrentNumber] = useState(0);
+
+          useEffect(() => {
+            let count = 0;
+            const interval = setInterval(() => {
+              if (count < card.number) {
+                count += Math.ceil(card.number / 100); // Increment to reach the target in 100 steps
+                setCurrentNumber(count);
+              } else {
+                clearInterval(interval);
+              }
+            }, 40); // Update every 50ms for smooth animation
+
+            return () => clearInterval(interval); // Cleanup interval on component unmount
+          }, [card.number]);
+
           return (
             <Box
               key={index}
@@ -62,7 +81,6 @@ export default function Section1() {
                 alignItems: "center",
                 justifyContent: "center",
                 transition: "all 0.7s",
-
                 "&::after": {
                   content: '""',
                   position: "absolute",
@@ -91,7 +109,7 @@ export default function Section1() {
                   width: "100%",
                   position: "relative",
                   transition: "all 0.8s",
-                  zIndex: 2, // İçeriği after'ın üstüne çıkarmak için
+                  zIndex: 2,
                   "&:hover": {
                     backgroundColor: "#565acf",
                   },
@@ -110,7 +128,7 @@ export default function Section1() {
                     transition: "all 0.5s",
                   }}
                 >
-                  {card.number}
+                  {currentNumber}
                 </Typography>
 
                 <Typography

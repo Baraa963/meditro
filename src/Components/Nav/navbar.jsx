@@ -46,7 +46,7 @@ export default function Navbar() {
       title: "Pages",
       subMenu: [
         { title: "About Us", path: "/about-us" },
-        { title: "Our Team", path: "/team" },
+        { title: "Our Team", path: "/our-team" },
         { title: "FAQ'S", path: "/faq" },
         { title: "Booking", path: "/booking" },
         { title: "Error 404", path: "/404" },
@@ -67,7 +67,7 @@ export default function Navbar() {
         { title: "Blog Detail", path: "/blog-detail" },
       ],
     },
-    { title: "Contact Us", path: "/contact" },
+    { title: "Contact Us", path: "/contact-us" },
     { title: "Search", path: "/search" },
   ];
 

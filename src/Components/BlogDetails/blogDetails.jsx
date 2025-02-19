@@ -11,15 +11,14 @@ export default function blogDetails() {
           height: "auto",
           display: "flex",
           flexDirection: { xs: "column", lg: "row" },
-          justifyContent: { md: "center", lg: "space-between" },
-          alignItems: "start",
+          justifyContent: { xs: "center", lg: "space-between" },
+          alignItems: {xs:'center',lg:"start"},
           gap: 4,
         }}
       >
         <Stack
-          className="border"
           sx={{
-            width: { sm: "100%", md: "100%", lg: "66%" },
+            width: { sm: "90%", md: "80%", lg: "66%" },
             display: "flex",
             gap: 2.5,
           }}
@@ -28,9 +27,8 @@ export default function blogDetails() {
         </Stack>
 
         <Stack
-          className="border"
           sx={{
-            width: { md: "100%", lg: "33%", height: "auto" },
+            width: { sm: "90%", md: "80%", lg: "33%" },
             height:'auto',
             display: "flex",
             justifyContent:'center',

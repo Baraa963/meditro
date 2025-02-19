@@ -171,7 +171,7 @@ export default function serviceLeftSide() {
                 </Typography>
                 <Slider
                   aria-label="ios slider"
-                  value={data.value}
+                  value={parseInt(data.value, 10)} // String olan değeri sayıya çeviriyoruz
                   valueLabelFormat={(value) => `${value}%`} // Yüzde işareti ekleme
                   valueLabelDisplay="on"
                   sx={{

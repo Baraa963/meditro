@@ -119,21 +119,32 @@ export default function BlogDetailsLeftSide() {
           clear: "both",
           color: "#fff",
           lineHeight: 1.7,
-          margin: "25px 0",
-          padding: "25px 30px 25px 140px",
-          position: "relative",
-          "&::before": {
-            backgroundImage: `url(${qouteImg})`,
-            backgroundSize: "cover",
-            content: '""',
-            height: "90px",
-            width: "90px",
-            position: "absolute",
-            top: "30px",
-            left: "30px",
-          },
+          padding: '25px',
+          display:'flex',
+          flexDirection:'row',
+          gap:2
+          
+          // "&::before": {
+          //   backgroundImage: `url(${qouteImg})`,
+          //   backgroundSize: "cover",
+          //   content: '""',
+          //   // height: "90px",
+          //   width: "90px",
+          //   position: "absolute",
+          //   top: "30px",
+          //   left: "30px",
+          // },
         }}
       >
+       <Box
+        component="img"
+        src={qouteImg}
+        sx={{
+          borderStyle: "none",
+          width: {xs:'25px',sm:'50px',md:'75px',lg:"100px"},
+          height:{xs:'25px',sm:'50px',md:'75px',lg:"100px"},
+        }}
+      />
         <Typography
           sx={{
             fontSize: "22px",

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function weWorksCard({ number, title, description }) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -16,8 +16,14 @@ export default function weWorksCard({ number, title, description }) {
         padding: "40px 30px",
         position: "relative",
         transition: "all 0.5s",
-        mb:{xs:number == '02'? '40px':'0px',sm:number == '02'? '0px':'0px'}, 
-        mt:{xs:number == '02'? '40px':'0px',sm:number == '02'? '0px':'40px'}, 
+        mb: {
+          xs: number == "02" ? "40px" : "0px",
+          sm: number == "02" ? "0px" : "0px",
+        },
+        mt: {
+          xs: number == "02" ? "40px" : "0px",
+          sm: number == "02" ? "0px" : "40px",
+        },
         zIndex: 1,
         "&::after": {
           content: '""',
@@ -50,7 +56,7 @@ export default function weWorksCard({ number, title, description }) {
       <Typography
         className="big-text"
         sx={{
-          WebkitTextStroke: number == '02' ?"2px #ffffff" :'2px #ffe3d3' ,
+          WebkitTextStroke: number == "02" ? "2px #ffffff" : "2px #ffe3d3",
           color: "transparent",
           fontSize: "80px",
           fontWeight: 900,
@@ -78,21 +84,21 @@ export default function weWorksCard({ number, title, description }) {
 
       <Typography
         variant="h6"
-        className= 'text'
+        className="text"
         sx={{
           fontSize: "14px",
           fontWeight: "500",
           lineHeight: "24px",
           marginBottom: "30px",
           transition: "all 0.5s",
-          color: number == '02' ? '#fff' : '#000'
+          color: number == "02" ? "#fff" : "#000",
         }}
       >
         {description}
       </Typography>
 
       <Button
-        className= "btn-text"
+        className="btn-text"
         sx={{
           borderRadius: "8px",
           border: "1px solid #e1e2f6",
@@ -101,7 +107,7 @@ export default function weWorksCard({ number, title, description }) {
           lineHeight: "1.2",
           padding: "15px 30px",
           transition: "all 0.5s",
-          backgroundColor: number === "02" ? '#fff' : "#e1e2f6",
+          backgroundColor: number === "02" ? "#fff" : "#e1e2f6",
           color: number === "02" ? "#f17732" : "#565acf",
           "&:hover": {
             backgroundColor: "#fff",
@@ -109,7 +115,17 @@ export default function weWorksCard({ number, title, description }) {
             color: "#f17732",
           },
         }}
-        onClick={()=>{navigate('/booking')}}
+        onClick={() => {
+          navigate(
+            number === "01"
+              ? "/booking"
+              : number === "02"
+              ? "/service"
+              : number === "03"
+              ? "/contact-us"
+              : "/service"
+          );
+        }}
       >
         View More
       </Button>

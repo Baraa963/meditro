@@ -99,7 +99,7 @@ export default function Header({ ComponentName, Path }) {
             width: "250px",
             height: "auto",
             backgroundColor: "var(--btn-color)",
-            p: "15px 10px",
+            p: "10px 10px",
             borderRadius: "8px",
           }}
         >

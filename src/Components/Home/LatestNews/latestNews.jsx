@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Box, Button, Card, Container, Typography } from "@mui/material";
 import line from "../../../assets/line.png";
 import newsBg from "../../../assets/newsBg.png";
@@ -24,8 +25,10 @@ import "swiper/css/navigation";
 import "swiper/css/autoplay"; // Import the autoplay CSS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export default function latestNews() {
+  const navigate = useNavigate();
   const LatestNewsData = [
     {
       imgTitle: newsImg1,
@@ -261,7 +264,8 @@ export default function latestNews() {
                         color: "#fff",
                       },
                     }}
-                  >
+                    onClick={() => navigate('/blog-detail')}
+                    >
                     View More
                   </Button>
                 </Card>

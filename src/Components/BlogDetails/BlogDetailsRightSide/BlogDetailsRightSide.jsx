@@ -7,6 +7,7 @@ import PostImg4 from "../../../assets/newsImg4.jpg";
 import PostImg5 from "../../../assets/newsImg5.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { Fragment } from "react";
 export default function BlogDetailsRightSide() {
   const RecentPostsData = [
     {
@@ -42,7 +43,7 @@ export default function BlogDetailsRightSide() {
       {/*Recent Posts Box */}
       <Box
         sx={{
-          width: {md:'80%',lg:"100%"},
+          width: { sm: "100%", md: "90%", lg: "100%" },
           height: "auto",
           p: 3,
           backgroundColor: "#fff",
@@ -74,11 +75,8 @@ export default function BlogDetailsRightSide() {
         <Stack sx={{ width: "100%", gap: 2 }}>
           {RecentPostsData.map((data, index) => {
             return (
-              <>
-                <Box
-                  key={index}
-                  sx={{ width: "100%", display: "flex", gap: 2 }}
-                >
+              <Fragment key={index}>
+                <Box sx={{ width: "100%", display: "flex", gap: 2 }}>
                   <Box
                     component="img"
                     src={data.img}
@@ -115,7 +113,7 @@ export default function BlogDetailsRightSide() {
                         : "#0000006e",
                   }}
                 />
-              </>
+              </Fragment>
             );
           })}
         </Stack>
@@ -124,13 +122,7 @@ export default function BlogDetailsRightSide() {
       {/*Our Gallery Box */}
       <Box
         sx={{
-          width: {md:'80%',lg:"100%"},
-          height: "auto",
           p: 3,
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          gap: 0.5,
           backgroundColor: "#fff",
           border: "1px solid rgba(86, 90, 207, .2)",
           borderBottom: "3px solid #565acf",
@@ -139,29 +131,58 @@ export default function BlogDetailsRightSide() {
           transition: "all .5s",
         }}
       >
-        {OurGalleryData.map((data, index) => {
-          return (
-            <Box
-              key={index}
-              component="img"
-              src={data}
-              sx={{
-                transition: "all .5s",
-                width: "32.5%",
-                "&:hover": {
-                  transform: "scale(0.9)",
-                  opacity: 0.8,
-                },
-              }}
-            />
-          );
-        })}
-      </Box>
+        <Box>
+          <Typography
+            sx={{
+              fontSize: "24px",
+              color: "rgb(31, 34, 120)",
+              lineHeight: "1.3",
+              fontWeight: "600",
+              mb: "10px",
+            }}
+          >
+            Tags
+          </Typography>
+          <Box
+            component="img"
+            src={BlueLineImg}
+            sx={{ width: "120px", height: "6px", mb: "30px" }}
+          />
+        </Box>
 
+        <Box
+          sx={{
+            width: { md: "90%", lg: "100%" },
+            height: "auto",
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            gap: 0.5,
+          }}
+        >
+          {OurGalleryData.map((data, index) => {
+            return (
+              <Box
+                key={index}
+                component="img"
+                src={data}
+                sx={{
+                  transition: "all .5s",
+                  width: "32.5%",
+                  "&:hover": {
+                    transform: "scale(0.9)",
+                    opacity: 0.8,
+                  },
+                }}
+              />
+            );
+          })}
+        </Box>
+      </Box>
       {/*Tags Box */}
       <Box
         sx={{
-          width: {md:'80%',lg:"100%"},
+          width: { md: "80%", lg: "100%" },
           height: "auto",
           p: 3,
           backgroundColor: "#fff",

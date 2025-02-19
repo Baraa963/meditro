@@ -199,8 +199,8 @@ export default function Footer() {
                             cursor: "pointer",
                             color: "var(--orange-color)",
                             transition: "0.4s ease-in-out",
-                            transform: "translateX(10px)",
-                            scale: 1.14,
+                            transform: "translateX(1px)",
+                            scale: 0.99,
                           },
                         }}
                       >
