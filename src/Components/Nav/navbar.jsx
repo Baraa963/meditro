@@ -17,7 +17,7 @@ import logo from "../../assets/logo.png";
 import { ExpandMore } from "@mui/icons-material";
 
 export default function Navbar() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMediumScreen, setIsMediumScreen] = useState(false);
@@ -47,7 +47,7 @@ export default function Navbar() {
       subMenu: [
         { title: "About Us", path: "/about-us" },
         { title: "Our Team", path: "/our-team" },
-        { title: "FAQ'S", path: "/faq" },
+        { title: "FAQ'S", path: "/faqs" },
         { title: "Booking", path: "/booking" },
         { title: "Error 404", path: "/404" },
         { title: "Login / Register", path: "/login" },
@@ -107,11 +107,23 @@ export default function Navbar() {
                     onMouseEnter={() => setHoverIndex(index)}
                     onMouseLeave={() => setHoverIndex(null)}
                     sx={{
+                      position: "relative",
                       padding: "15px 20px",
                       cursor: "pointer",
+                      transition: "color 0.4s ease-in-out", // Renk geçişi için ekledik
                       "&:hover": {
                         color: "var(--orange-color)",
-                        transition: "0.4s ease-in-out",
+                      },
+                      "&::before": {
+                        content: '"+"',
+                        position: "absolute",
+                        right: 0,
+                        bottom:10,
+                        textAlign: "center",
+                        fontWeight: "500",
+                        fontSize: "22px",
+                        transition:
+                          "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)", // Hem hover giriş hem çıkış için
                       },
                       "&::after": {
                         content: '""',
@@ -124,10 +136,14 @@ export default function Navbar() {
                         transition: "width 0.4s ease-in-out",
                       },
                       "&:hover::after": { width: "100%" },
+                      "&:hover::before": {
+                        transform: "rotate(45deg)",
+                      },
                     }}
                   >
                     {item.title}
                   </Typography>
+
                   {hoverIndex === index && item.subMenu && (
                     <Paper
                       sx={{

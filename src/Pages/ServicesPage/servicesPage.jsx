@@ -59,7 +59,8 @@ export default function servicesPage() {
           backgroundColor: "var(--btn-color)",
           height: "auto",
           display: "flex",
-          p: { xs: 3, sm: 8 },
+          p: { xs: 3, sm: 8},
+          my:9
         }}
       >
         <Box

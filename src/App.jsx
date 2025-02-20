@@ -7,6 +7,9 @@ import ServicesPage from "./Pages/ServicesPage/servicesPage";
 import ServiceDetailsPage from './Pages/ServiceDetailsPage/serviceDetailsPage'
 import BlogDetailsPage from "./Pages/BlogDetailsPage/blogDetailsPage";
 import OurTeamPage from "./Pages/OurTeamPage/ourTeamPage";
+import FaqsPage from "./Pages/FaqsPage/faqsPage";
+import NotFoundPage from "./Pages/PageNotFound/notFoundPage";
+import BlogPage from "./Pages/BlogPage/blogPage";
 function App() {
   return (
     <>
@@ -25,6 +28,10 @@ function App() {
         <Route path="/service-detail" element={<ServiceDetailsPage/>} />
         <Route path="/blog-detail" element={<BlogDetailsPage/>} />
         <Route path="/our-team" element={<OurTeamPage/>} />
+        <Route path="/faqs" element={<FaqsPage/>} />
+        <Route path="/404" element={<NotFoundPage/>} />
+        <Route path="/blogs" element={<BlogPage/>} />
+        <Route path="*" element={<NotFoundPage/>} />
       </Routes>
     </Router>
     {/* <HomePage/> */}

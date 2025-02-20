@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Navbar from "../../Components/Nav/navbar";
 import AboutUs from "../../Components/Home/AboutUs/aboutUs";
 import WeWorks from "../../Components/Home/WeWorks/weWorks";
@@ -10,7 +11,11 @@ import Testimonial from "../../Components/Home/Testimonial/testimonial";
 import LatestNews from "../../Components/Home/LatestNews/latestNews";
 import Footer from "../../Components/Footer/footer";
 import {Stack } from "@mui/material";
+import { useEffect } from "react";
 export default function homePage() {
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <>
       <div className="wrapper">
