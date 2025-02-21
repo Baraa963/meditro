@@ -240,7 +240,7 @@ export default function Services() {
                 }}
               >
                 {services.map((service, index) => (
-                  <SwiperSlide key={index} style={{ width: "300px" }}>
+                  <SwiperSlide key={index} style={{ width: "40%" }}>
                     {/* <Box
                       sx={{
                         position: "relative",
@@ -270,7 +270,7 @@ export default function Services() {
                           gap: 2,
                           flexDirection: "column",
                           backgroundColor: "#fff",
-                          backgroundImage: `url(${cardBackground})`,
+                          backgroundImage: url(${cardBackground}),
                           backgroundRepeat: "no-repeat",
                           backgroundSize: "100%",
                           borderRadius: "20px",
@@ -348,7 +348,7 @@ export default function Services() {
                       </Card>
                     </Box> */}
 
-                    <ServicesCards data={service} width={"250px"} />
+                    <ServicesCards data={service} width={"90%"} />
                   </SwiperSlide>
                 ))}
               </Swiper>

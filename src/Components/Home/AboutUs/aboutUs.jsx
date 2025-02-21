@@ -18,7 +18,12 @@ import img2 from '../../../assets/AboutImg2.png'
 import { useNavigate } from "react-router-dom";
 export default function AboutUs() {
   const navigate = useNavigate();  // useNavigate hook'unu tanımla
-
+  const servicesData = [
+    {icon:faTruckMedical,SerciveName:'Emergency Help',borderColor:'#b2f0fb',backgroundColor:'#b2f0fba8'},
+    {icon:faBed,SerciveName:'Qualified Doctors',borderColor:'#a4fcc4',backgroundColor:'#a4fcc4a8'},
+    {icon:faFire,SerciveName:'Best Professionals',borderColor:'#ffbdbc',backgroundColor:'#ffbdbca8'},
+    {icon:faSyringe,SerciveName:'Medical Treatment',borderColor:'#e2c4ff',backgroundColor:'#e2c4ffa8'},
+  ]
   return (
     <Container>
       <Stack
@@ -205,6 +210,7 @@ export default function AboutUs() {
             sx={{
               width:'100%',
               display: "flex",
+              flexDirection:'row',
               mt: "45px",
               flexWrap: "wrap",
               gap: "30px 30px",
@@ -212,156 +218,53 @@ export default function AboutUs() {
             }}
           >
             {/* Emergency Help */}
-            <Box
-              sx={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "start",
-                width: { md: "47%", lg: "273px" },
-                p: "20px",
-                borderRadius: "8px",
-                border: "2px solid #b2f0fb",
-                "&::after": {
-                  content: '""',
-                  position: "absolute",
-                  width: "75px",
-                  height: "75px",
-                  borderRadius: "9% 50% 50% 9%",
-                  left: "0%",
-                  backgroundColor: "#b2f0fba8",
-                  zIndex: 0,
-                },
-                "&:hover .icon": {
-                  animation: "shake 0.4s ease-in-out",
-                },
-              }}
-            >
-              <FontAwesomeIcon
-                className="icon"
-                icon={faTruckMedical}
-                size="2x"
-                style={{ zIndex: "1" }}
-              />
-              <Typography sx={{ pl: "40px" }}>Emergency Help</Typography>
-            </Box>
-
-            {/* Qualified Doctors */}
-            <Box
-              sx={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "start",
-                width: { md: "47%", lg: "273px" },
-                p: "20px",
-                borderRadius: "8px",
-                border: "2px solid #a4fcc4",
-                "&::after": {
-                  content: '""',
-                  position: "absolute",
-                  width: "75px",
-                  height: "75px",
-                  borderRadius: "9% 50% 50% 9%",
-                  left: "0%",
-                  backgroundColor: "#a4fcc4a8",
-                  zIndex: 0,
-                },
-                "&:hover .icon": {
-                  animation: "shake 0.4s ease-in-out",
-                },
-              }}
-            >
-              <FontAwesomeIcon
-                className="icon"
-                icon={faBed}
-                size="2x"
-                style={{ zIndex: "1" }}
-              />
-              <Typography sx={{ pl: "40px" }}>Qualified Doctors</Typography>
-            </Box>
-
-            {/* Best Professionals */}
-            <Box
-              sx={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "start",
-                width: { md: "47%", lg: "273px" },
-                p: "20px",
-                borderRadius: "8px",
-                border: "2px solid #ffbdbc",
-                "&::after": {
-                  content: '""',
-                  position: "absolute",
-                  width: "75px",
-                  height: "75px",
-                  borderRadius: "9% 50% 50% 9%",
-                  left: "0%",
-                  backgroundColor: "#ffbdbca8",
-                  zIndex: 0,
-                },
-                "&:hover .icon": {
-                  animation: "shake 0.4s ease-in-out",
-                },
-              }}
-            >
-              <FontAwesomeIcon
-                className="icon"
-                icon={faFire}
-                size="2x"
-                color="orange"
-                style={{ zIndex: "1" }}
-              />
-              <Typography sx={{ pl: "40px" }}>Best Professionals</Typography>
-            </Box>
-
-            {/* Medical Treatment */}
-            <Box
-              sx={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "start",
-                width: { md: "47%", lg: "273px" },
-                p: "20px",
-                borderRadius: "8px",
-                border: "2px solid #e2c4ff",
-                "&::after": {
-                  content: '""',
-                  position: "absolute",
-                  width: "75px",
-                  height: "75px",
-                  borderRadius: "9% 50% 50% 9%",
-                  left: "0%",
-                  backgroundColor: "#e2c4ffa8",
-                  zIndex: 0,
-                },
-                "&:hover .icon": {
-                  animation: "shake 0.4s ease-in-out",
-                },
-              }}
-            >
-              <FontAwesomeIcon
-                className="icon"
-                icon={faSyringe}
-                size="2x"
-                style={{ zIndex: "1" }}
-              />
-              <Typography sx={{ pl: "40px" }}>Medical Treatment</Typography>
-            </Box>
-
-            
+            {servicesData.map((service,index)=>{
+              return(
+                <Box
+                key={index}
+                sx={{
+                  position: "relative",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "start",
+                  width: { md: "47%", lg: "273px" },
+                  p: "20px",
+                  borderRadius: "8px",
+                  border: `2px solid ${service.borderColor}`,
+                  "&::after": {
+                    content: '""',
+                    position: "absolute",
+                    width: "75px",
+                    height: "75px",
+                    borderRadius: "9% 50% 50% 9%",
+                    left: "0%",
+                    backgroundColor: `${service.backgroundColor}`,
+                    zIndex: 0,
+                  },
+                  "&:hover .icon": {
+                    animation: "shake 0.4s ease-in-out",
+                  },
+                }}
+              >
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={service.icon}
+                  size="2x"
+                  style={{ zIndex: "1" }}
+                />
+                <Typography sx={{ pl: "40px" }}>{service.SerciveName}</Typography>
+              </Box>
+              );
+            })}         
 
           </Box>
           
           <Box sx={{display:'flex', justifyContent:{xs:'start',sm:'center',lg:'start'}}}>
           <Button
               sx={{
-                width: { xs: "130px", sm: "150px", md: "160px" }, // Responsive genişlik
-                height: { xs: "40px", sm: "45px", md: "50px" }, // Responsive yükseklik
-                fontSize: { xs: "12px", sm: "14px", md: "15px" }, // Responsive yazı boyutu
+                width: { xs: "130px", sm: "150px", md: "160px" }, 
+                height: { xs: "40px", sm: "45px", md: "50px" }, 
+                fontSize: { xs: "12px", sm: "14px", md: "15px" },
                 backgroundColor: "var(--btn-color)",
                 mt:'30px',
                 "&:hover": {
@@ -378,15 +281,9 @@ export default function AboutUs() {
               Read More
           </Button>
           </Box>
-        
-
+    
         </Box>
       </Stack>
-
-      {/* Shake Animation */}
-      <style>{`
-        
-      `}</style>
     </Container>
   );
 }

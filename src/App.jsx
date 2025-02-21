@@ -10,6 +10,7 @@ import OurTeamPage from "./Pages/OurTeamPage/ourTeamPage";
 import FaqsPage from "./Pages/FaqsPage/faqsPage";
 import NotFoundPage from "./Pages/PageNotFound/notFoundPage";
 import BlogPage from "./Pages/BlogPage/blogPage";
+import RigesterLoginPage from './Pages/RigesterLoginPage/RigesterLoginPage'
 function App() {
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
         <Route path="/faqs" element={<FaqsPage/>} />
         <Route path="/404" element={<NotFoundPage/>} />
         <Route path="/blogs" element={<BlogPage/>} />
+        <Route path="/login" element={<RigesterLoginPage/>} />
         <Route path="*" element={<NotFoundPage/>} />
       </Routes>
     </Router>

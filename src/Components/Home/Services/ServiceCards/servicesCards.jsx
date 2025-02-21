@@ -1,15 +1,8 @@
 /* eslint-disable react/prop-types */
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Pagination, Scrollbar, Autoplay } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/pagination";
 import cardBackground from "../../../../assets/cardBackground.png";
-// import Diagnostics from "../../../../assets/DiagnosticsImg.png";
-// import Treatment from "../../../../assets/TreatmentImg.png";
-// import Surgery from "../../../../assets/SurgeryImg.png"; // Düzgün dosya yolu
-// import Vaccine from "../../../../assets/VaccineImg.png"; // Düzgün dosya yolu
-// import Emergency from "../../../../assets/EmergencyImg.png"; // Düzgün dosya yolu
+
 import { Box, Card, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 

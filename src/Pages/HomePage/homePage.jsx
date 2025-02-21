@@ -10,12 +10,12 @@ import Services from "../../Components/Home/Services/services";
 import Testimonial from "../../Components/Home/Testimonial/testimonial";
 import LatestNews from "../../Components/Home/LatestNews/latestNews";
 import Footer from "../../Components/Footer/footer";
-import {Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import { useEffect } from "react";
 export default function homePage() {
-   useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="wrapper">
@@ -23,7 +23,7 @@ export default function homePage() {
         <Hero1 />
         <img style={{ width: "100%" }} src={Shape} />
       </div>
-      <Stack sx={{ display: "flex", gap: 15 }}>
+      <Stack sx={{ display: "flex", gap: 10 }}>
         <AboutUs />
         <WeWorks />
         <BookAppointment />

@@ -13,6 +13,7 @@ import {
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import LoginIcon from "@mui/icons-material/Login";
 import logo from "../../assets/logo.png";
 import { ExpandMore } from "@mui/icons-material";
 
@@ -68,7 +69,6 @@ export default function Navbar() {
       ],
     },
     { title: "Contact Us", path: "/contact-us" },
-    { title: "Search", path: "/search" },
   ];
 
   return (
@@ -89,89 +89,138 @@ export default function Navbar() {
             alignItems: "center",
           }}
         >
+          {/* Logo Section */}
           <Box sx={{ width: "25%", display: "flex", alignItems: "center" }}>
             <img src={logo} alt="Logo" />
           </Box>
+
+          {/* Navigation Menu */}
           <Box
             sx={{
-              width: "75%",
+              width: "65%",
               display: { xs: "contents", md: "flex" },
               justifyContent: "space-evenly",
+              alignItems: "center", // Add this line to vertically align the items
             }}
           >
+            {/* Desktop Navigation */}
             {!isMediumScreen ? (
-              navItems.map((item, index) => (
-                <Box key={index} sx={{ position: "relative" }}>
-                  <Typography
-                    onClick={() => item.path && navigate(item.path)}
-                    onMouseEnter={() => setHoverIndex(index)}
-                    onMouseLeave={() => setHoverIndex(null)}
-                    sx={{
-                      position: "relative",
-                      padding: "15px 20px",
-                      cursor: "pointer",
-                      transition: "color 0.4s ease-in-out", // Renk geçişi için ekledik
-                      "&:hover": {
-                        color: "var(--orange-color)",
-                      },
-                      "&::before": {
-                        content: '"+"',
-                        position: "absolute",
-                        right: 0,
-                        bottom:10,
-                        textAlign: "center",
-                        fontWeight: "500",
-                        fontSize: "22px",
-                        transition:
-                          "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)", // Hem hover giriş hem çıkış için
-                      },
-                      "&::after": {
-                        content: '""',
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        width: "0%",
-                        height: "2px",
-                        backgroundColor: "var(--orange-color)",
-                        transition: "width 0.4s ease-in-out",
-                      },
-                      "&:hover::after": { width: "100%" },
-                      "&:hover::before": {
-                        transform: "rotate(45deg)",
-                      },
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-
-                  {hoverIndex === index && item.subMenu && (
-                    <Paper
-                      sx={{
-                        position: "absolute",
-                        top: "100%",
-                        left: 0,
-                        zIndex: 4,
-                        minWidth: "200px",
-                        backgroundColor: "#fff",
-                        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-                        padding: "10px 0",
-                      }}
+              <>
+                {navItems.map((item, index) => (
+                  <Box key={index} sx={{ position: "relative" }}>
+                    <Typography
+                      onClick={() => item.path && navigate(item.path)}
                       onMouseEnter={() => setHoverIndex(index)}
                       onMouseLeave={() => setHoverIndex(null)}
+                      sx={{
+                        position: "relative",
+                        padding: "15px 25px",
+                        cursor: "pointer",
+                        color: "var(--main-color)",
+                        fontWeight: "600",
+                        transition: "color 0.4s ease-in-out",
+                        "&:hover": {
+                          color: "var(--orange-color)",
+                        },
+                        "&::before": {
+                          content:
+                            item.title !== "Contact Us" &&
+                            item.title !== "Home" &&
+                            item.title !== "Search"
+                              ? '"+"'
+                              : '""',
+                          position: "absolute",
+                          right: 0,
+                          bottom: 10,
+                          textAlign: "center",
+                          fontWeight: "500",
+                          fontSize: "22px",
+                          color: "#bbbbcf",
+                          transition: "transform 0.6s ease",
+                        },
+                        "&::after": {
+                          content: '""',
+                          position: "absolute",
+                          bottom: 0,
+                          left: 0,
+                          width: "0%",
+                          height: "2px",
+                          backgroundColor: "var(--orange-color)",
+                          transition: "width 0.4s ease-in-out",
+                        },
+                        "&:hover::after": { width: "100%" },
+                        "&:hover::before": {
+                          transform: "rotate(45deg)",
+                          color: "var(--orange-color)",
+                        },
+                      }}
                     >
-                      {item.subMenu.map((option, i) => (
-                        <MenuItem
-                          key={i}
-                          sx={{ padding: "10px 20px" }}
-                          onClick={() => navigate(option.path)}
-                        >
-                          {option.title}
-                        </MenuItem>
-                      ))}
-                    </Paper>
-                  )}
+                      {item.title}
+                    </Typography>
+
+                    {/* Dropdown Menu for Submenu Items */}
+                    {hoverIndex === index && item.subMenu && (
+                      <Paper
+                        sx={{
+                          position: "absolute",
+                          top: "100%",
+                          left: 0,
+                          zIndex: 4,
+                          minWidth: "200px",
+                          backgroundColor: "#fff",
+                          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                          padding: "10px 0",
+                        }}
+                        onMouseEnter={() => setHoverIndex(index)}
+                        onMouseLeave={() => setHoverIndex(null)}
+                      >
+                        {item.subMenu.map((option, i) => (
+                          <MenuItem
+                            key={i}
+                            sx={{
+                              padding: "10px 20px",
+
+                              "&::after": {
+                                content: '""',
+                                position: "absolute",
+                                bottom: 0,
+                                left: 0,
+                                width: "0%",
+                                height: "2px",
+                                backgroundColor: "var(--btn-color)",
+                                transition: "width 0.7s ease-in-out",
+                              },
+                              "&:hover::after": { width: "100%" },
+                            }}
+                            onClick={() => navigate(option.path)}
+                          >
+                            {option.title}
+                          </MenuItem>
+                        ))}
+                      </Paper>
+                    )}
+                  </Box>
+                ))}
+                {/* Search Section inside Navigation */}
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <IconButton
+                    type="button"
+                    sx={{
+                      transition: "all 0.3s ease-in-out",
+                      p: "10px",
+                      backgroundColor: "var(--btn-color)",
+
+                      "&:hover": {
+                        backgroundColor: "#4044a4",
+                      },
+                    }}
+                    aria-label="search"
+                    onClick={() => navigate("/login")}
+                  >
+                    <LoginIcon sx={{ color: "white" }} />
+                  </IconButton>
                 </Box>
-              ))
+              </>
             ) : (
               <IconButton onClick={() => setIsDrawerOpen(true)}>
                 <MenuIcon sx={{ color: "var(--main-color)" }} />
@@ -180,6 +229,7 @@ export default function Navbar() {
           </Box>
         </Box>
 
+        {/* Mobile Drawer (Sidebar) */}
         <Drawer
           anchor="left"
           open={isDrawerOpen}

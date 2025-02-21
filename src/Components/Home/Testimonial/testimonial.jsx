@@ -33,6 +33,7 @@ export default function Testimonial() {
         alignItems: "center",
       }}
     >
+      {/* Testimonial Vertical Side*/}
       <Box
         sx={{
           width: "100%",
@@ -99,8 +100,10 @@ export default function Testimonial() {
         </Typography>
       </Box>
 
+      {/*Left & Right Sides Wrapper */}
       <Box
         sx={{
+          width: "100%",
           display: "flex",
           flexDirection: {
             xs: "column",
@@ -134,9 +137,11 @@ export default function Testimonial() {
             animation: "move2 2.5s infinite alternate-reverse",
           }}
         />
+
+        {/*Right Side Doctor Imgs */}
         <Box
           sx={{
-            width: { sm: "100", md: "50%", lg: "40%" },
+            width: { sm: "100", md: "50%", lg: "45%" },
             display: "flex",
             flexDirection: "row",
             position: "relative",
@@ -210,9 +215,10 @@ export default function Testimonial() {
           />
         </Box>
 
+        {/*Left Side Swiper Slide */}
         <Box
           sx={{
-            width: { xs: "100%", sm: "100%", md: "100%", lg: "50%" },
+            width: { xs: "100%", sm: "100%", md: "100%", lg: "55%" },
             height: "auto",
           }}
         >
@@ -229,7 +235,7 @@ export default function Testimonial() {
               display: "flex",
               borderRadius: "20px",
               width: "100%",
-              maxWidth: "90vw",
+              maxWidth: "100%",
               height: "auto",
             }}
           >
@@ -238,8 +244,7 @@ export default function Testimonial() {
                 <Card
                   sx={{
                     backgroundColor: "var(--orange-color)",
-                    width: "100%",
-                    maxWidth: "93%",
+                    maxWidth: "100%",
                     height: "auto",
                     borderRadius: "40px 0 40px 40px",
                     flexDirection: "column",
@@ -263,7 +268,6 @@ export default function Testimonial() {
                       right: "40px",
                     }}
                   />
-
                   <Typography
                     sx={{
                       color: "#fff",
@@ -279,7 +283,6 @@ export default function Testimonial() {
                     aliqua. Quis ipsum suspendisse ultrices gravida. Risus
                     commodo viverra maecena ssuspendisse ultrices gravida.
                   </Typography>
-
                   <Typography
                     sx={{
                       color: "#fff",
@@ -289,7 +292,6 @@ export default function Testimonial() {
                   >
                     John Deo
                   </Typography>
-
                   <Typography
                     sx={{
                       color: "#fff",
@@ -305,6 +307,8 @@ export default function Testimonial() {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/*Left-Right Slider Buttons */}
           <Box
             sx={{
               pl: "20px",
@@ -354,6 +358,7 @@ export default function Testimonial() {
           </Box>
         </Box>
       </Box>
+      
     </Container>
   );
 }

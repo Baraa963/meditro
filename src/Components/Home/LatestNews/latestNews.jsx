@@ -70,20 +70,14 @@ export default function latestNews() {
   return (
     <Box
       sx={{
+        width: "100%",
         backgroundImage: `url(${newsBg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        // mb:'100px',
       }}
     >
-      <Container
-        sx={
-          {
-            // mt: "100px"
-          }
-        }
-      >
+      <Container sx={{ width: "100%" }}>
         <Box
           sx={{
             width: "100%",
@@ -144,9 +138,8 @@ export default function latestNews() {
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            gap: "10px",
-            justifyContent: "center",
-            position: "relative",
+            justifyContent: "",
+            alignItems: "center",
           }}
         >
           <img
@@ -163,16 +156,14 @@ export default function latestNews() {
             modules={[Navigation, Autoplay]}
             loop={true}
             slidesPerView={1}
-            autoplay={{
-              delay: 4000, // Set the autoplay delay to 3 seconds
-              disableOnInteraction: false, // Allow autoplay to continue after interaction
-            }}
+            // autoplay={{
+            //   delay: 4000, // Set the autoplay delay to 3 seconds
+            //   disableOnInteraction: false, // Allow autoplay to continue after interaction
+            // }}
             style={{
               padding: "15px 0px",
               borderRadius: "20px",
-              width: "95%",
               height: "auto",
-              position: "relative",
             }}
             breakpoints={{
               500: { slidesPerView: 1 },
@@ -184,17 +175,18 @@ export default function latestNews() {
               <SwiperSlide key={index}>
                 <Card
                   sx={{
+                    mx: "auto",
                     backgroundColor: "#fff",
                     border: "2px solid rgba(86, 90, 207, .2)",
                     borderRadius: "10px",
                     padding: "20px",
                     transition: "all .5s",
-                    width: { sm: "95%", md: "95%", lg: "95%" },
+                    width: { xs: "80%", sm: "80%", md: "82%", lg: "85%" },
                     height: "auto",
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center",
-                    gap: 2,
+                    justifyContent: "space-between",
+                    gap: 3,
                     "&:hover": {
                       border: "2px solid #fff",
                       boxShadow: "0 10px 30px 0 rgba(58, 64, 234, 0.57)",
@@ -264,8 +256,8 @@ export default function latestNews() {
                         color: "#fff",
                       },
                     }}
-                    onClick={() => navigate('/blog-detail')}
-                    >
+                    onClick={() => navigate("/blog-detail")}
+                  >
                     View More
                   </Button>
                 </Card>
