@@ -5,6 +5,7 @@ import {
   List,
   ListItemButton,
   ListItemText,
+  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -41,7 +42,7 @@ export default function BlogDetailsLeftSide() {
   ];
 
   return (
-    <>
+    <Stack sx={{width:'100%',display:'flex',gap:4}}>
       <Box
         component="img"
         src={BlogDetailsImg1}
@@ -112,7 +113,8 @@ export default function BlogDetailsLeftSide() {
       {/*Orange Card */}
       <Box
         sx={{
-          width: "100%",
+          width: "fit-content",
+          maxWidth:'100%',
           background: "#f17732",
           borderRadius: "10px",
           boxShadow: "0 7px 50px -20px #f17732",
@@ -282,7 +284,7 @@ export default function BlogDetailsLeftSide() {
           display: "flex",
           flexDirection: { xs: "column", sm: "column", md: "row" },
           gap: 3,
-          width: "100%",
+          width: "fit-content",
           backgroundColor: "#fff",
           border: "1px solid rgba(86, 90, 207, .2)",
           borderBottom: "3px solid #565acf",
@@ -377,12 +379,12 @@ export default function BlogDetailsLeftSide() {
           <Box
             key={index}
             sx={{
+              width: "fit-content",
               display: "flex",
               flexDirection: { xs: "column", sm: "column", md: "row" },
               alignItems: "start",
               justifyContent: "start",
-              gap: 3,
-              width: "100%",
+              gap: 0,
               backgroundColor: "#fff",
               border: "1px solid rgba(86, 90, 207, .2)",
               borderBottom: "3px solid #565acf",
@@ -529,6 +531,6 @@ export default function BlogDetailsLeftSide() {
           Send
         </Button>
       </Box>
-    </>
+    </Stack>
   );
 }

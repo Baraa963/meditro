@@ -4,14 +4,13 @@ import ServiceRightSide from "./ServiceRightSide/serviceRightSide";
 export default function serviceDetails() {
   return (
     <Box
-      // className="border"
       sx={{
-        width: "100%",
-        p: "40px 40px",
+        width: "95%",
         display: "flex",
         flexDirection: {xs:'column', lg: "row" },
-        justifyContent: "center",
+        justifyContent: "space-around",
         gap: 4,
+        p:'30px'       
       }}
     >
       <Stack
@@ -34,7 +33,7 @@ export default function serviceDetails() {
           maxHeight: "fit-content", // Yüksekliği sınırlama
           overflowY: "auto", // İçerik taşarsa scroll ekle
           height: "100vh",
-          width: { xs: "100%", lg: "32%" },
+          width: { xs: "100%", lg: "25%" },
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#fff",
@@ -44,7 +43,7 @@ export default function serviceDetails() {
           borderBottom: "3px solid #565acf",
           borderRadius: "6px 6px 4px 4px !important",
           boxShadow: "0 10px 30px 0 rgba(0, 0, 0, 0.06)",
-          padding: "30px",
+          p:'30px'
         }}
       >
         <ServiceRightSide />

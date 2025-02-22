@@ -43,7 +43,6 @@ export default function BlogDetailsRightSide() {
       {/*Recent Posts Box */}
       <Box
         sx={{
-          width: { sm: "100%", md: "90%", lg: "100%" },
           height: "auto",
           p: 3,
           backgroundColor: "#fff",
@@ -182,7 +181,6 @@ export default function BlogDetailsRightSide() {
       {/*Tags Box */}
       <Box
         sx={{
-          width: { md: "80%", lg: "100%" },
           height: "auto",
           p: 3,
           backgroundColor: "#fff",

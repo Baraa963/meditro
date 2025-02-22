@@ -4,7 +4,7 @@ import BlogDetailsRightSide from "./BlogDetailsRightSide/BlogDetailsRightSide";
 import Footer from "../Footer/footer";
 export default function blogDetails() {
   return (
-    <Stack sx={{ display: "flex", gap: 10 }}>
+    <Stack  sx={{width:'100%', display: "flex", gap: 10}}>
       <Container
         sx={{
           width: "100%",
@@ -12,15 +12,14 @@ export default function blogDetails() {
           display: "flex",
           flexDirection: { xs: "column", lg: "row" },
           justifyContent: { xs: "center", lg: "space-between" },
-          alignItems: {xs:'center',lg:"start"},
-          gap: 4,
+          alignItems: { xs: "center", lg: "start" },
+          gap: 5,
         }}
       >
         <Stack
           sx={{
-            width: { sm: "90%", md: "80%", lg: "66%" },
+            width: { sm: "90%", md: "80%", lg: "67%" },
             display: "flex",
-            gap: 2.5,
           }}
         >
           <BlogDetailsLeftSide />
@@ -28,17 +27,16 @@ export default function blogDetails() {
 
         <Stack
           sx={{
-            width: { sm: "90%", md: "80%", lg: "33%" },
-            height:'auto',
+            width: { sm: "90%", md: "80%", lg: "32%" },
+            height: "auto",
             display: "flex",
-            justifyContent:'center',
-            alignItems:'center',
-            gap: 2.5,
+            justifyContent: "start",
+            alignItems: "center",
             position: { md: "relative", lg: "sticky" },
             top: "110px",
             maxHeight: "fit-content", // Yüksekliği sınırlama
-            overflowY: "auto", // İçerik taşarsa scroll ekle
-            mb:{md:'100px',lg:'0'}
+            mb: { md: "100px", lg: "0" },
+            gap:4
           }}
         >
           <BlogDetailsRightSide />

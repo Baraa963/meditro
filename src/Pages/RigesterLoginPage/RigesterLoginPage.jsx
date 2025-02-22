@@ -4,17 +4,17 @@ import {
   Box,
   TextField,
   Stack,
-  FilledInput,
-  InputAdornment,
   IconButton,
+  InputAdornment,
   FormControl,
   InputLabel,
+  OutlinedInput,
   Button,
 } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import logo from "../../assets/logo.png";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 const theme = createTheme({
   palette: {
@@ -26,10 +26,7 @@ export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+  const handleMouseDownPassword = (event) => event.preventDefault();
 
   return (
     <ThemeProvider theme={theme}>
@@ -40,10 +37,10 @@ export default function SignUp() {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
+         
         }}
       >
         <Stack
-          className="border"
           sx={{
             width: "30%",
             display: "flex",
@@ -51,58 +48,52 @@ export default function SignUp() {
             justifyContent: "center",
             alignItems: "center",
             gap: 3,
+            boxShadow: "0 10px 30px 0 rgba(0, 0, 0, 0.06)",
+            padding: "30px",
           }}
         >
           <Box component="img" src={logo} sx={{ width: "200px" }} />
 
+          {/* Name Field */}
           <TextField
-            id="filled-basic"
+            required
+            id="outlined-name"
             label="Name"
-            variant="filled"
+            variant="outlined"
             sx={{
+              color: "var(--btn-color) !important",
               width: "85%",
               "& .MuiInputLabel-root.Mui-focused": {
-                color: "var(--btn-color)",
+                color: "var(--btn-color)", // Label rengi değişsin
               },
-              "& .MuiFilledInput-underline:before": {
-                borderBottomColor: "var(--btn-color)",
-              },
-              "& .MuiFilledInput-underline:after": {
-                borderBottomColor: "var(--btn-color)",
+              "& .MuiOutlinedInput-root": {
+                
+                "&.Mui-focused fieldset": {
+                  borderColor: "var(--btn-color) !important", // Focus rengi
+                },
               },
             }}
           />
 
-          <FormControl sx={{ m: 1, width: "85%" }} variant="filled">
+          {/* Password Field */}
+          <FormControl sx={{ width: "85%" }} variant="outlined">
             <InputLabel
-              htmlFor="filled-adornment-password"
+              htmlFor="outlined-password"
               sx={{
                 "&.Mui-focused": {
-                  color: "var(--btn-color)", // Change label color to btn-color when focused
+                  color: "var(--btn-color) !important",
                 },
               }}
             >
               Password
             </InputLabel>
-            <FilledInput
-             sx={{
-                "& .MuiFilledInput-underline:before": {
-                  borderBottomColor: "var(--btn-color)", // Change border color before focus
-                },
-                "& .MuiFilledInput-underline:after": {
-                  borderBottomColor: "var(--btn-color)", // Change border color after focus
-                },
-              }}
-              id="filled-adornment-password"
+            <OutlinedInput
+              id="outlined-password"
               type={showPassword ? "text" : "password"}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
-                    aria-label={
-                      showPassword
-                        ? "hide the password"
-                        : "display the password"
-                    }
+                    aria-label="toggle password visibility"
                     onClick={handleClickShowPassword}
                     onMouseDown={handleMouseDownPassword}
                     edge="end"
@@ -111,10 +102,17 @@ export default function SignUp() {
                   </IconButton>
                 </InputAdornment>
               }
-             
+              sx={{
+                
+                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "var(--btn-color) !important", // Focus rengi
+                },
+              }}
+              label="Password"
             />
           </FormControl>
 
+          {/* Login Button */}
           <Button
             type="button"
             sx={{
