@@ -7,13 +7,14 @@ import OurDoctor from "../../Components/AboutUs/OurDoctor/ourDoctor";
 import Footer from '../../Components/Footer/footer';
 
 import { useEffect } from "react";
+import { Stack } from "@mui/material";
 
 export default function AboutUsPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
+    <Stack sx={{display:'flex',gap:10}}>
       <AboutUsHeader ComponentName='About Us' Path='about-us'/>
       <AboutUs />
       <Section1 />
@@ -21,6 +22,6 @@ export default function AboutUsPage() {
       <Testimonial />
       <LatestNews />
       <Footer/>
-    </>
+    </Stack>
   );
 }

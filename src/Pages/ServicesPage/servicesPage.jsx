@@ -12,7 +12,7 @@ import Treatment from "../../assets/TreatmentImg.png";
 import Surgery from "../../assets/SurgeryImg.png";
 import Vaccine from "../../assets/VaccineImg.png";
 import Emergency from "../../assets/EmergencyImg.png";
-import { Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { useEffect } from "react";
 export default function servicesPage() {
   useEffect(() => {
@@ -51,16 +51,15 @@ export default function servicesPage() {
     },
   ];
   return (
-    <>
+    <Stack sx={{ display: "flex", gap: 10 }}>
       <ServicesHeader ComponentName="Services" Path="service" />
       <Box
         sx={{
-          width: "100%",
+          width: "fit-content",
           backgroundColor: "var(--btn-color)",
           height: "auto",
           display: "flex",
-          p: { xs: 3, sm: 8},
-          my:9
+          p: { xs: 3, sm: 8 },
         }}
       >
         <Box
@@ -71,12 +70,12 @@ export default function servicesPage() {
             justifyContent: "center",
             alignItems: "center",
             flexWrap: "wrap",
-            gap: "30px 30px",
+            gap: 10,
           }}
         >
           {services.map((service, index) => (
-            <Box key={index} sx={{ width: "358px" }}>
-              <ServicesCards data={service} width={"100%"} />
+            <Box key={index} sx={{ width: "300px" }}>
+              <ServicesCards data={service} width={"fit-content"} />
             </Box>
           ))}
         </Box>
@@ -86,6 +85,6 @@ export default function servicesPage() {
       <OurDoctor />
       <LatestNews />
       <Footer />
-    </>
+    </Stack>
   );
 }

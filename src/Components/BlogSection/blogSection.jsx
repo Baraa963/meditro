@@ -98,13 +98,14 @@ export default function blogSection() {
     },
   ];
   return (
-    <Container sx={{py:10}}>
+    <Container>
       <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
           gap: 4,
           justifyContent: "center",
+          alignItems:'center',
           position: "relative",
         }}
       >
@@ -128,11 +129,12 @@ export default function blogSection() {
               borderRadius: "10px",
               padding: "20px",
               transition: "all .5s",
-              width: "30%",
+              width: {xs:'80%',sm:'55%',md:'40%',lg:"25%"},
               height: "auto",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+             
               gap: 2,
               "&:hover": {
                 border: "2px solid #fff",
@@ -181,7 +183,7 @@ export default function blogSection() {
             </Typography>
             <Button
               sx={{
-                width: "50%",
+                width: "fit-content",
                 textTransform: "none",
                 borderRadius: "8px",
                 border: "1px solid #e1e2f6",

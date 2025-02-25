@@ -348,7 +348,7 @@ export default function Services() {
                       </Card>
                     </Box> */}
 
-                    <ServicesCards data={service} width={"90%"} />
+                    <ServicesCards data={service} width={"60%"} />
                   </SwiperSlide>
                 ))}
               </Swiper>

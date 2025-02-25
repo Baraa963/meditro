@@ -3,8 +3,6 @@ import { Box, Button, Card, Container, Typography } from "@mui/material";
 import line from "../../../assets/line.png";
 import newsBg from "../../../assets/newsBg.png";
 import blueCircle from "../../../assets/blueCircle2.png";
-import traingle from "../../../assets/traingle.png";
-import square from "../../../assets/aboutImg1.png";
 import blueLine from "../../../assets/blue squiggly lines.png";
 
 import newsImg1 from "../../../assets/newsImg1.jpg";
@@ -142,24 +140,15 @@ export default function latestNews() {
             alignItems: "center",
           }}
         >
-          <img
-            src={traingle}
-            style={{
-              width: "7%",
-              position: "absolute",
-              top: "-2%",
-              left: "4%",
-              animation: "move3 5s infinite alternate-reverse",
-            }}
-          />
+          
           <Swiper
             modules={[Navigation, Autoplay]}
             loop={true}
             slidesPerView={1}
-            // autoplay={{
-            //   delay: 4000, // Set the autoplay delay to 3 seconds
-            //   disableOnInteraction: false, // Allow autoplay to continue after interaction
-            // }}
+            autoplay={{
+              delay: 4000, // Set the autoplay delay to 3 seconds
+              disableOnInteraction: false, // Allow autoplay to continue after interaction
+            }}
             style={{
               padding: "15px 0px",
               borderRadius: "20px",
@@ -275,17 +264,7 @@ export default function latestNews() {
               }}
             />
           </Swiper>
-          <img
-            src={square}
-            style={{
-              width: "9%",
-              position: "absolute",
-              bottom: "-15%",
-              left: "5%",
-              animation: "move1 5s infinite alternate-reverse",
-              zIndex: 1,
-            }}
-          />
+          
         </Box>
       </Container>
     </Box>

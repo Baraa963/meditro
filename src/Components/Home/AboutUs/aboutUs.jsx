@@ -211,10 +211,11 @@ export default function AboutUs() {
               width:'100%',
               display: "flex",
               flexDirection:'row',
-              mt: "45px",
+              justifyContent:'center',
+              alignItems:'center',
               flexWrap: "wrap",
+              mt: "45px",
               gap: "30px 30px",
-              justifyContent:'center'
             }}
           >
             {/* Emergency Help */}
@@ -227,7 +228,7 @@ export default function AboutUs() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "start",
-                  width: { md: "47%", lg: "273px" },
+                  width: {xs:'70%', sm: "40%",md: "40%", lg: "39.7%" },
                   p: "20px",
                   borderRadius: "8px",
                   border: `2px solid ${service.borderColor}`,

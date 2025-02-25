@@ -36,7 +36,7 @@ export default function ourDoctor() {
     },
   ];
   return (
-    <Container sx={{ pb: 10, display: "flex", flexDirection: "column" }}>
+    <Container sx={{ display: "flex", flexDirection: "column" }}>
       <Box
         sx={{
           width: "100%",

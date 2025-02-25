@@ -2,7 +2,6 @@ import ourDoctorCardBg2 from "../../../../assets/ourDoctorCardBg2.png";
 import ourDoctorCardBg1 from "../../../../assets/ourDoctorCardBg1.png";
 import maskImage from "../../../../assets/mask-img.png";
 
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Box,
@@ -14,13 +13,13 @@ import {
 } from "@mui/material";
 export default function doctorCards({ cardsData }) {
   return (
-    <Container sx={{ py: 7 }}>
+    <Container sx={{ py: 5 }}>
       <Stack
         sx={{
           width: "100%",
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
+          justifyContent: "start",
           alignItems: "center",
           gap: 4,
           flexWrap: "wrap",
@@ -36,7 +35,7 @@ export default function doctorCards({ cardsData }) {
                 borderRadius: "10px",
                 padding: "20px",
                 transition: "all .5s",
-                width: { xs: "80%", sm: "60%", md: "40%", lg: "31%" },
+                width: { xs: "80%", sm: "60%", md: "40%", lg: "26.5%" },
                 height: "auto",
                 display: "flex",
                 flexDirection: "column",
@@ -53,7 +52,10 @@ export default function doctorCards({ cardsData }) {
                 },
               }}
             >
-              <Box className="cardWrapper" sx={{ width: "100%", height: "auto" }}>
+              <Box
+                className="cardWrapper"
+                sx={{ width: "100%", height: "auto" }}
+              >
                 <Box sx={{ position: "relative", width: "100%" }}>
                   <Box
                     className="opacity"

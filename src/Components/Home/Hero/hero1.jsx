@@ -78,7 +78,7 @@ export default function hero1() {
             <img
               src={traingle}
               className="traingle-img"
-              style={{ position: "absolute" }}
+              style={{ position: "absolute",width:'80px',bottom:'100px' }}
             />
             <img
               src={plus}

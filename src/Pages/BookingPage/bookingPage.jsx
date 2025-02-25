@@ -10,12 +10,10 @@ export default function booking() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
+    <Stack sx={{display:'flex',gap:10}}>
       <BookingHeader ComponentName="Booking" />
-      <Stack sx={{ mb: "80px" }}>
-        <BookAppointment />
-      </Stack>
+      <BookAppointment />
       <Footer />
-    </>
+    </Stack>
   );
 }

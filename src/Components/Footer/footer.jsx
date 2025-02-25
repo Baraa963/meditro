@@ -55,7 +55,6 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        mt:'40px',
         backgroundImage: `url(${footerBg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",

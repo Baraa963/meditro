@@ -40,7 +40,7 @@ export default function Section1() {
         justifyContent: "center",
         alignItems: "center",
         py: 10,
-        my: 10,
+       
       }}
     >
       <Container
