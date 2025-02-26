@@ -65,7 +65,7 @@ export default function serviceLeftSide() {
         }}
       />
 
-      <Stack>
+      <Stack sx={{ p: 4 }}>
         <Typography
           sx={{
             fontSize: "40px",
@@ -77,223 +77,224 @@ export default function serviceLeftSide() {
           Why Medical Had Been So Popular Till
         </Typography>
         <Typography
-          sx={{ fontSize: "18px", fontWeight: "500", letterSpacing: 0.4 }}
+          sx={{ fontSize: "18px", fontWeight: "500", letterSpacing: 0.4,pb:4 }}
         >
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry&apos;s standard dummy text
           ever since the 1500s, when an unknown printer took a galley of type
           and scrambled it to make a type specimen book
         </Typography>
-      </Stack>
 
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          gap: 1,
-          justifyContent: "start",
-        }}
-      >
-        {/* left side*/}
-        <Stack sx={{ width: { xs: "100%", lg: "52%" } }}>
-          {data.map((text, index) => {
-            return (
-              <Box
-                key={index}
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  gap: 1,
-                  m: "10px 0px",
-                }}
-              >
-                <Typography
-                  sx={{
-                    position: "relative",
-                    color: "#1f2278",
-                    fontSize: "19px",
-                    fontWeight: "500",
-                    lineHeight: "20px",
-                    letterSpacing: 0.3,
-                    wordSpacing: 0.5,
-                    pl: "50px", // Check kutusu için yer açıyoruz
-                    "&::before": {
-                      content: '""',
-                      position: "absolute",
-                      left: 0,
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                      backgroundColor: "#565acf",
-                      borderRadius: "4px",
-                      width: "40px", // Kutuyu genişlettik
-                      height: "35px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      transition: "all .5s",
-                    },
-                    "&::after": {
-                      content: '"✓"', // Check işareti
-                      position: "absolute",
-                      left: "12px", // Check işaretini sağa kaydırdık (boşluk eklemek için)
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                      color: "#fff",
-                      fontWeight: "900",
-                      fontSize: "18px",
-                    },
-                  }}
-                >
-                  {text}
-                </Typography>
-              </Box>
-            );
-          })}
-        </Stack>
-
-        {/* right side*/}
-        <Stack sx={{ width: { xs: "100%", lg: "45%" }, pr: 2 }}>
-          {sliderData.map((data, index) => {
-            return (
-              <Box key={index}>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    color: "var(--main-color)",
-                    fontWeight: "600",
-                    mb: { xs: "23px", sm: "3px" },
-                  }}
-                  gutterBottom
-                >
-                  {data.title}
-                </Typography>
-                <Slider
-                  aria-label="ios slider"
-                  value={parseInt(data.value, 10)} // String olan değeri sayıya çeviriyoruz
-                  valueLabelFormat={(value) => `${value}%`} // Yüzde işareti ekleme
-                  valueLabelDisplay="on"
-                  sx={{
-                    color: "var(--btn-color)",
-                    height: 5,
-                    padding: "15px 0",
-                    "& .MuiSlider-thumb": {
-                      height: 20,
-                      width: 20,
-                      backgroundColor: "#fff",
-                      boxShadow: "0 0 2px 0px rgba(0, 0, 0, 0.1)",
-                      "&:focus, &:hover, &.Mui-active": {
-                        boxShadow: "0px 0px 3px 1px rgba(0, 0, 0, 0.1)",
-                        "@media (hover: none)": {
-                          boxShadow:
-                            '"0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)"',
-                        },
-                      },
-                      "&:before": {
-                        boxShadow:
-                          "0px 0px 1px 0px rgba(0,0,0,0.2), 0px 0px 0px 0px rgba(0,0,0,0.14), 0px 0px 1px 0px rgba(0,0,0,0.12)",
-                      },
-                    },
-                    "& .MuiSlider-valueLabel": {
-                      fontSize: 12,
-                      fontWeight: "normal",
-                      top: -6,
-                      backgroundColor: "unset",
-                      color: "#000",
-                      "&::before": {
-                        display: "none",
-                      },
-                      "& *": {
-                        background: "transparent",
-                        color: "var(--btn-color)",
-                        fontWeight: "600",
-                        fontSize: "15px",
-                      },
-                    },
-                    "& .MuiSlider-track": {
-                      border: "none",
-                      height: 5,
-                    },
-                    "& .MuiSlider-rail": {
-                      opacity: 0.5,
-                      boxShadow: "inset 0px 0px 4px -2px #000",
-                      backgroundColor: "#d0d0d0",
-                    },
-                  }}
-                />
-              </Box>
-            );
-          })}
-        </Stack>
-
-        {/*Popular Questions */}
-        <Stack sx={{ display: "flex", justifyContent: "center", gap: 4 }}>
-          <Box>
-            <Typography
-              sx={{
-                fontSize: "24px",
-                color: "var(--main-color)",
-                fontWeight: "600",
-                mb: "10px",
-              }}
-            >
-              Popular Questions
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "18px",
-                fontWeight: "400",
-                mb: "10px",
-              }}
-            >
-              Standard dummy text ever since the 1500s, when an unknown printer
-              took a galley of type and scrambled it to make a type specimen
-              book
-            </Typography>
-          </Box>
-          {/*Accordion -- How Doctor Can Ease Your Pain? */}
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-            {AccordionData.map((data, index) => {
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            gap: 1,
+            justifyContent: "start",
+          }}
+        >
+          {/* left side*/}
+          <Stack sx={{ width: { xs: "100%", lg: "51%" } }}>
+            {data.map((text, index) => {
               return (
-                <Accordion
+                <Box
                   key={index}
-                  defaultExpanded={index === 0} // Sadece ilk Accordion açık olacak
                   sx={{
-                    borderRadius: "8px",
-                    backgroundColor: "var(--btn-color)", // Varsayılan arka plan rengi
-                    "&.Mui-expanded": {
-                      backgroundColor: "var(--orange-color)",
-                    }, // Açıkken arka plan rengi
-                    transition: "background-color 0.5s ease-in-out",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: 1,
+                    m: "10px 0px",
                   }}
                 >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />} // Expand icon rengi beyaz
-                    aria-controls="panel3-content"
-                    id="panel3-header"
-                  >
-                    <Typography
-                      component="span"
-                      sx={{
-                        color: "#fff",
-                        fontWeight: "600",
-                        padding: "2px 2px",
+                  <Typography
+                    sx={{
+                      position: "relative",
+                      color: "#1f2278",
+                      fontSize: "19px",
+                      fontWeight: "500",
+                      lineHeight: "20px",
+                      letterSpacing: 0.3,
+                      wordSpacing: 0.5,
+                      pl: "50px", // Check kutusu için yer açıyoruz
+                      "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        left: 0,
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        backgroundColor: "#565acf",
+                        borderRadius: "4px",
+                        width: "40px", // Kutuyu genişlettik
+                        height: "35px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                         transition: "all .5s",
-                      }}
-                    >
-                      {data.title}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails sx={{ backgroundColor: "#eeeefa" }}>
-                    {data.decsription}
-                  </AccordionDetails>
-                </Accordion>
+                      },
+                      "&::after": {
+                        content: '"✓"', // Check işareti
+                        position: "absolute",
+                        left: "12px", // Check işaretini sağa kaydırdık (boşluk eklemek için)
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        color: "#fff",
+                        fontWeight: "900",
+                        fontSize: "18px",
+                      },
+                    }}
+                  >
+                    {text}
+                  </Typography>
+                </Box>
               );
             })}
-          </Box>
-        </Stack>
-      </Box>
+          </Stack>
+
+          {/* right side*/}
+          <Stack sx={{ width: { xs: "100%", lg: "45%" }, pr: 2 }}>
+            {sliderData.map((data, index) => {
+              return (
+                <Box key={index}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      color: "var(--main-color)",
+                      fontWeight: "600",
+                      mb: { xs: "23px", sm: "3px" },
+                    }}
+                    gutterBottom
+                  >
+                    {data.title}
+                  </Typography>
+                  <Slider
+                    aria-label="ios slider"
+                    value={parseInt(data.value, 10)} // String olan değeri sayıya çeviriyoruz
+                    valueLabelFormat={(value) => `${value}%`} // Yüzde işareti ekleme
+                    valueLabelDisplay="on"
+                    sx={{
+                      color: "var(--btn-color)",
+                      height: 5,
+                      padding: "15px 0",
+                      "& .MuiSlider-thumb": {
+                        height: 20,
+                        width: 20,
+                        backgroundColor: "#fff",
+                        boxShadow: "0 0 2px 0px rgba(0, 0, 0, 0.1)",
+                        "&:focus, &:hover, &.Mui-active": {
+                          boxShadow: "0px 0px 3px 1px rgba(0, 0, 0, 0.1)",
+                          "@media (hover: none)": {
+                            boxShadow:
+                              '"0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)"',
+                          },
+                        },
+                        "&:before": {
+                          boxShadow:
+                            "0px 0px 1px 0px rgba(0,0,0,0.2), 0px 0px 0px 0px rgba(0,0,0,0.14), 0px 0px 1px 0px rgba(0,0,0,0.12)",
+                        },
+                      },
+                      "& .MuiSlider-valueLabel": {
+                        fontSize: 12,
+                        fontWeight: "normal",
+                        top: -6,
+                        backgroundColor: "unset",
+                        color: "#000",
+                        "&::before": {
+                          display: "none",
+                        },
+                        "& *": {
+                          background: "transparent",
+                          color: "var(--btn-color)",
+                          fontWeight: "600",
+                          fontSize: "15px",
+                        },
+                      },
+                      "& .MuiSlider-track": {
+                        border: "none",
+                        height: 5,
+                      },
+                      "& .MuiSlider-rail": {
+                        opacity: 0.5,
+                        boxShadow: "inset 0px 0px 4px -2px #000",
+                        backgroundColor: "#d0d0d0",
+                      },
+                    }}
+                  />
+                </Box>
+              );
+            })}
+          </Stack>
+
+          {/*Popular Questions */}
+          <Stack sx={{ display: "flex", justifyContent: "center", gap: 4 }}>
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  color: "var(--main-color)",
+                  fontWeight: "600",
+                  mb: "10px",
+                }}
+              >
+                Popular Questions
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "400",
+                  mb: "10px",
+                }}
+              >
+                Standard dummy text ever since the 1500s, when an unknown
+                printer took a galley of type and scrambled it to make a type
+                specimen book
+              </Typography>
+            </Box>
+            {/*Accordion -- How Doctor Can Ease Your Pain? */}
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+              {AccordionData.map((data, index) => {
+                return (
+                  <Accordion
+                    key={index}
+                    defaultExpanded={index === 0} // Sadece ilk Accordion açık olacak
+                    sx={{
+                      borderRadius: "8px",
+                      backgroundColor: "var(--btn-color)", // Varsayılan arka plan rengi
+                      "&.Mui-expanded": {
+                        backgroundColor: "var(--orange-color)",
+                      }, // Açıkken arka plan rengi
+                      transition: "background-color 0.5s ease-in-out",
+                    }}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />} // Expand icon rengi beyaz
+                      aria-controls="panel3-content"
+                      id="panel3-header"
+                    >
+                      <Typography
+                        component="span"
+                        sx={{
+                          color: "#fff",
+                          fontWeight: "600",
+                          padding: "2px 2px",
+                          transition: "all .5s",
+                        }}
+                      >
+                        {data.title}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails sx={{ backgroundColor: "#eeeefa" }}>
+                      {data.decsription}
+                    </AccordionDetails>
+                  </Accordion>
+                );
+              })}
+            </Box>
+          </Stack>
+
+        </Box>
+      </Stack>
     </Stack>
   );
 }

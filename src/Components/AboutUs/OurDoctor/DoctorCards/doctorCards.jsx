@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useState } from "react";
 import ourDoctorCardBg2 from "../../../../assets/ourDoctorCardBg2.png";
 import ourDoctorCardBg1 from "../../../../assets/ourDoctorCardBg1.png";
 import maskImage from "../../../../assets/mask-img.png";
@@ -11,7 +13,10 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+
 export default function doctorCards({ cardsData }) {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
     <Container sx={{ py: 5 }}>
       <Stack
@@ -29,6 +34,8 @@ export default function doctorCards({ cardsData }) {
           return (
             <Card
               key={index}
+              onMouseEnter={() => setHoveredIndex(index)} // Hover başlatıldığında index ayarla
+              onMouseLeave={() => setHoveredIndex(null)} // Hover sona erdiğinde index sıfırla
               sx={{
                 backgroundColor: "#fff",
                 border: "2px solid rgba(86, 90, 207, .2)",
@@ -42,6 +49,7 @@ export default function doctorCards({ cardsData }) {
                 justifyContent: "center",
                 alignItems: "center",
                 gap: 4,
+                opacity: hoveredIndex === index ? 1 : 0.3, // Hover edilen kartın opaklığını 1 yap, diğerlerini 0.4 yap
                 "&:hover": {
                   border: "2px solid #fff",
                   boxShadow: "0 10px 30px 0 rgba(58, 64, 234, 0.57)",
@@ -52,10 +60,7 @@ export default function doctorCards({ cardsData }) {
                 },
               }}
             >
-              <Box
-                className="cardWrapper"
-                sx={{ width: "100%", height: "auto" }}
-              >
+              <Box className="cardWrapper" sx={{ width: "100%", height: "auto" }}>
                 <Box sx={{ position: "relative", width: "100%" }}>
                   <Box
                     className="opacity"

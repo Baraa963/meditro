@@ -6,7 +6,7 @@ import cardBackground from "../../../../assets/cardBackground.png";
 import { Box, Card, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function ServicesCards({ data, width }) {
+export default function ServicesCards({ data }) {
   const navigate = useNavigate();
 
   return (
@@ -19,7 +19,6 @@ export default function ServicesCards({ data, width }) {
           alignItems: "center",
           transition: "all 0.5s ease-in-out",
           backgroundColor: "transparent",
-
           "&:hover img": {
             borderColor: "#f17732", // Hover olunca border rengi
             boxShadow: "0px 0px 15px rgb(201, 192, 187)", // Glow efekti
@@ -36,8 +35,7 @@ export default function ServicesCards({ data, width }) {
       >
         <Card
           sx={{
-            width: width,
-            height: "auto",
+            height: "350px",
             display: "flex",
             gap: 2,
             flexDirection: "column",
@@ -110,7 +108,7 @@ export default function ServicesCards({ data, width }) {
               },
             }}
             onClick={() => {
-              navigate('/service-detail');
+              navigate("/service-detail");
             }}
           >
             View More

@@ -33,7 +33,7 @@ export default function serviceDetails() {
           maxHeight: "fit-content", // Yüksekliği sınırlama
           overflowY: "auto", // İçerik taşarsa scroll ekle
           height: "100vh",
-          width: { xs: "100%", lg: "25%" },
+          width: { xs: "100%", lg: "fit-content" },
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#fff",
