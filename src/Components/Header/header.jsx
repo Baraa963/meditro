@@ -82,7 +82,7 @@ export default function Header({ ComponentName, Path }) {
         />
         <Typography
           sx={{
-            fontSize: "62px",
+            fontSize: {xs:'40px',sm:'45px',md:'56px',lg:"62px"},
             fontWeight: "600",
             color: "var(--main-color)",
             letterSpacing: "2px",
@@ -96,10 +96,10 @@ export default function Header({ ComponentName, Path }) {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            width: "250px",
+            width: {xs:'210px',lg:"250px"},
             height: "auto",
             backgroundColor: "var(--btn-color)",
-            p: "10px 10px",
+            p: { xs:'10px 2px',lg:"10px 10px"},
             borderRadius: "8px",
           }}
         >

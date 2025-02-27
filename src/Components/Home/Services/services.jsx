@@ -226,9 +226,11 @@ export default function Services() {
                 scrollbar={{ draggable: true }}
                 modules={[Pagination, Scrollbar, Autoplay]}
                 breakpoints={{
+                  300: { slidesPerView: 1 }, // For smaller screens
+                  350: { slidesPerView: 1.5 }, // For smaller screens
                   450: { slidesPerView: 1.5 }, // For smaller screens
                   750: { slidesPerView: 2 }, // Medium screens
-                  900: { slidesPerView: 3 }, // Larger screens
+                  900: { slidesPerView: 4 }, // Larger screens
                   1200: { slidesPerView: 2.5 }, // Large desktop screens
                   1300: { slidesPerView: 3 }, // Very large desktop screens
                 }}

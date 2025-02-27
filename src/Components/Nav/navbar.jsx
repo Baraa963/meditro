@@ -14,7 +14,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import LoginIcon from "@mui/icons-material/Login";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/Logo.webm";
 import { ExpandMore } from "@mui/icons-material";
 
 export default function Navbar() {
@@ -90,8 +90,14 @@ export default function Navbar() {
           }}
         >
           {/* Logo Section */}
-          <Box sx={{ width: "25%", display: "flex", alignItems: "center" }}>
-            <img src={logo} alt="Logo" />
+          <Box sx={{ width: "25%", display: "flex", alignItems: "start" }}>
+            <Box
+              component="video"
+              src={logo}
+              sx={{ width:{xs:'190px',sm:'200px',md:'220px',lg:'250px'}}}
+              autoPlay
+              muted
+            />
           </Box>
 
           {/* Navigation Menu */}
@@ -236,7 +242,13 @@ export default function Navbar() {
           onClose={() => setIsDrawerOpen(false)}
         >
           <Box sx={{ width: 250, padding: "20px" }}>
-            <img src={logo} alt="Logo" style={{ width: "150px" }} />
+          <Box
+              component="video"
+              src={logo}
+              sx={{ width:{xs:'190px',sm:'200px',md:'220px',lg:'250px'}}}
+              autoPlay
+              muted
+            />
             {navItems.map((item, index) => (
               <Box key={index}>
                 {item.subMenu ? (
